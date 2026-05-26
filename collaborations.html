@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Συνεργασίες | Κήπος της Λυσούς</title>
+  <meta name="description" content="Οι φορείς και οργανισμοί που στηρίζουν το έργο του Κήπου της Λυσούς σε Ελλάδα και Ευρώπη."/>
+  <link rel="icon" href="Logos/Logo_0000_Kipos-min (1).png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="css/kdif.css" rel="stylesheet"/>
+  <style>
+    /* ── Country partner cards ── */
+    .country-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .country-card {
+      background: rgba(255,255,255,0.06);
+      border: 1.5px solid rgba(255,255,255,0.1);
+      border-radius: var(--r-lg);
+      padding: 2rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      transition: var(--t);
+    }
+    .country-card:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: var(--amber-light);
+      transform: translateY(-4px);
+    }
+    .country-flag {
+      font-size: 2.2rem;
+      line-height: 1;
+    }
+    .country-name {
+      font-family: var(--f-head);
+      font-weight: 800;
+      font-size: 1rem;
+      color: var(--white);
+    }
+    .country-org {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" style="width: 155px; height: auto;" alt="Κήπος της Λυσούς"/>
+    </a>
+    <div class="header-actions">
+      <a class="header-support-link" data-i18n="header-support" href="support.html">ΣΤΗΡΙΞΤΕ ΜΑΣ</a>
+      <button class="lang-toggle-btn" id="lang-toggle" aria-label="Language Toggle">EN</button>
+      <button class="menu-open-btn" id="menu-open" aria-label="Open Menu">
+        <span data-i18n="menu-btn">ΜΕΝΟΥ</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV OVERLAY ══ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="nav-overlay-top">
+    <a class="nav-overlay-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" alt="Κήπος της Λυσούς"/>
+    </a>
+    <button class="nav-overlay-close" id="nav-close" aria-label="Close Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <nav class="overlay-nav">
+    <ul>
+      <li><a href="index.html" data-i18n="nav-home">ΑΡΧΙΚΗ</a></li>
+      <li><a href="programs.html" data-i18n="nav-programs">ΤΙ ΚΑΝΟΥΜΕ</a></li>
+      <li><a href="about.html" data-i18n="nav-about">ΠΟΙΟΙ ΕΙΜΑΣΤΕ</a></li>
+      <li><a href="news.html" data-i18n="nav-news">ΤΑ ΝΕΑ ΜΑΣ</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      <li><a href="support.html" data-i18n="nav-support">ΣΤΗΡΙΞΤΕ ΜΑΣ</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay-footer">
+    <div class="nav-overlay-lang" id="overlay-lang-status">GR</div>
+    <a class="accessibility-btn" href="#" aria-label="Accessibility"><i class="fa-solid fa-wheelchair"></i></a>
+  </div>
+</div>
+
+<!-- ══ CINEMATIC HERO ══ -->
+<div class="page-hero hero-bg-collab">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html" data-el="Αρχική" data-en="Home">Αρχική</a>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span data-el="Συνεργασίες" data-en="Collaborations">Συνεργασίες</span>
+    </nav>
+    <h1 data-el="Συνεργασίες" data-en="Collaborations">Συνεργασίες</h1>
+    <p data-el="Μαζί με τους εταίρους μας οικοδομούμε μια κοινότητα χωρίς αποκλεισμούς, με ευρωπαϊκή διάσταση." data-en="Together with our partners we build an inclusive community with a European dimension.">Μαζί με τους εταίρους μας οικοδομούμε μια κοινότητα χωρίς αποκλεισμούς, με ευρωπαϊκή διάσταση.</p>
+  </div>
+</div>
+
+<!-- ══ NATIONAL PARTNERS — Icon cards ══ -->
+<section class="section">
+  <div class="container">
+    <div class="section-header centered reveal" style="max-width:700px;margin:0 auto 4rem;">
+      <span class="section-tag amber" data-el="ΕΘΝΙΚΟΙ ΣΥΝΕΡΓΑΤΕΣ" data-en="NATIONAL PARTNERS">ΕΘΝΙΚΟΙ ΣΥΝΕΡΓΑΤΕΣ</span>
+      <h2 data-el="Φορείς που πιστεύουν στο έργο μας" data-en="Organizations that believe in our work">Φορείς που πιστεύουν στο έργο μας</h2>
+      <p data-el="Η δύναμή μας έγκειται στις συνεργασίες. Είμαστε περήφανοι για το δίκτυο φορέων που στηρίζει το όραμά μας." data-en="Our strength lies in partnerships. We are proud of the network of organizations that supports our vision.">Η δύναμή μας έγκειται στις συνεργασίες. Είμαστε περήφανοι για το δίκτυο φορέων που στηρίζει το όραμά μας.</p>
+    </div>
+
+    <div class="sponsors-grid">
+      <div class="sponsor-card reveal">
+        <i class="fa-solid fa-building-columns sponsor-icon"></i>
+        <span class="sponsor-name" data-el="Δήμος Καλαμάτας" data-en="Municipality of Kalamata">Δήμος Καλαμάτας</span>
+      </div>
+      <div class="sponsor-card reveal reveal-delay-1">
+        <i class="fa-solid fa-map sponsor-icon"></i>
+        <span class="sponsor-name" data-el="Περιφέρεια Πελοποννήσου" data-en="Region of Peloponnese">Περιφέρεια Πελοποννήσου</span>
+      </div>
+      <div class="sponsor-card reveal reveal-delay-2">
+        <i class="fa-solid fa-heart-pulse sponsor-icon"></i>
+        <span class="sponsor-name" data-el="ΕΟΠΥΥ" data-en="EOPYY">ΕΟΠΥΥ</span>
+      </div>
+      <div class="sponsor-card reveal reveal-delay-3">
+        <i class="fa-solid fa-hands-holding-heart sponsor-icon"></i>
+        <span class="sponsor-name" data-el="Υπ. Κοινωνικής Πρόνοιας" data-en="Ministry of Social Welfare">Υπ. Κοινωνικής Πρόνοιας</span>
+      </div>
+      <div class="sponsor-card reveal reveal-delay-1">
+        <i class="fa-solid fa-graduation-cap sponsor-icon"></i>
+        <span class="sponsor-name" data-el="Πανεπιστήμιο Πελοποννήσου" data-en="University of Peloponnese">Πανεπιστήμιο Πελοποννήσου</span>
+      </div>
+      <div class="sponsor-card reveal reveal-delay-2">
+        <i class="fa-solid fa-seedling sponsor-icon"></i>
+        <span class="sponsor-name" data-el="ΚΕΘΕΑ Πελοπόννησος" data-en="KETHEA Peloponnese">ΚΕΘΕΑ Πελοπόννησος</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDITORIAL — Erasmus story ══ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="editorial-split reveal">
+      <div class="editorial-image">
+        <img src="Photos/20251121_120027.jpg" alt="Erasmus+ στον Κήπο"/>
+      </div>
+      <div class="editorial-content dark">
+        <span class="section-tag" style="color:var(--amber-light);" data-el="Η ΕΥΡΩΠΑΪΚΗ ΜΑΣ ΠΟΡΕΙΑ" data-en="OUR EUROPEAN JOURNEY">Η ΕΥΡΩΠΑΪΚΗ ΜΑΣ ΠΟΡΕΙΑ</span>
+        <h2 data-el="Από τη Νότια Ελλάδα στην Ευρώπη" data-en="From Southern Greece to Europe">Από τη Νότια Ελλάδα στην Ευρώπη</h2>
+        <p style="margin-top:1rem;" data-el="Από το 2016, ο Κήπος της Λυσούς συνδέει τη Νότια Ελλάδα με την Ευρώπη μέσα από ευρωπαϊκά προγράμματα και συνεργασία με το Ελληνογερμανικό Ινστιτούτο Νεολαίας. Νέοι από 6 χώρες έχουν επισκεφθεί τις εγκαταστάσεις μας, ενώ η ομάδα μας έχει ταξιδέψει σε γειτονικές χώρες για ανταλλαγή γνώσεων και πρακτικών." data-en="Since 2016, Lyso's Garden connects Southern Greece with Europe through European programs and collaboration with the Hellenic-German Institute for Youth. Young people from 6 countries have visited our facilities, while our team has traveled to neighboring countries to exchange knowledge and practices.">Από το 2016, ο Κήπος της Λυσούς συνδέει τη Νότια Ελλάδα με την Ευρώπη μέσα από ευρωπαϊκά προγράμματα και συνεργασία με το Ελληνογερμανικό Ινστιτούτο Νεολαίας. Νέοι από 6 χώρες έχουν επισκεφθεί τις εγκαταστάσεις μας, ενώ η ομάδα μας έχει ταξιδέψει σε γειτονικές χώρες για ανταλλαγή γνώσεων και πρακτικών.</p>
+        <div class="editorial-blockquote">
+          <span data-el="«Το Erasmus+ δεν είναι απλώς ένα χρηματοδοτικό πρόγραμμα. Είναι ένα παράθυρο ανθρωπιάς που συνδέει κοινωνίες.»" data-en="«Erasmus+ is not simply a funding program. It is a window of humanity that connects societies.»">«Το Erasmus+ δεν είναι απλώς ένα χρηματοδοτικό πρόγραμμα. Είναι ένα παράθυρο ανθρωπιάς που συνδέει κοινωνίες.»</span>
+        </div>
+        <a href="contact.html" class="btn btn-amber" style="margin-top:2rem;">
+          <i class="fa-solid fa-handshake"></i>
+          <span data-el="Γίνε Εταίρος" data-en="Become a Partner">Γίνε Εταίρος</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EUROPEAN NETWORK — Dark section with country cards ══ -->
+<section class="section bg-forest">
+  <div class="container">
+    <div class="section-header centered on-dark reveal" style="max-width:700px;margin:0 auto;">
+      <span class="section-tag white" data-el="ΕΥΡΩΠΑΪΚΟ ΔΙΚΤΥΟ" data-en="EUROPEAN NETWORK">ΕΥΡΩΠΑΪΚΟ ΔΙΚΤΥΟ</span>
+      <h2 data-el="Connecting Southern Greece with Europe" data-en="Connecting Southern Greece with Europe">Connecting Southern Greece with Europe</h2>
+      <p data-el="Συνεργαζόμαστε με οργανισμούς από όλη την Ευρώπη για κοινωνική συμπερίληψη και καινοτομία." data-en="We collaborate with organizations across Europe for social inclusion and innovation.">Συνεργαζόμαστε με οργανισμούς από όλη την Ευρώπη για κοινωνική συμπερίληψη και καινοτομία.</p>
+    </div>
+
+    <!-- Stats inline -->
+    <div class="stats-grid" style="background:transparent;padding:3rem 0;">
+      <div class="stat-item reveal">
+        <h2 class="counter" data-target="6">0</h2>
+        <p data-el="Χώρες Εταίροι" data-en="Partner Countries">Χώρες Εταίροι</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-1">
+        <h2 class="counter" data-target="5">0</h2>
+        <p data-el="Ενεργά Προγράμματα" data-en="Active Programs">Ενεργά Προγράμματα</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-2">
+        <h2 class="counter" data-target="48">0</h2>
+        <p data-el="Συμμετέχοντες Νέοι" data-en="Participating Youth">Συμμετέχοντες Νέοι</p>
+      </div>
+      <div class="stat-item reveal reveal-delay-3">
+        <h2>2016</h2>
+        <p data-el="Πρώτη Συνεργασία" data-en="First Partnership">Πρώτη Συνεργασία</p>
+      </div>
+    </div>
+
+    <!-- Country cards -->
+    <div class="country-grid">
+      <div class="country-card reveal">
+        <span class="country-flag">🇵🇹</span>
+        <span class="country-name" data-el="Πορτογαλία" data-en="Portugal">Πορτογαλία</span>
+        <span class="country-org" data-el="Associação para a Inclusão" data-en="Associação para a Inclusão">Associação para a Inclusão</span>
+      </div>
+      <div class="country-card reveal reveal-delay-1">
+        <span class="country-flag">🇮🇹</span>
+        <span class="country-name" data-el="Ιταλία" data-en="Italy">Ιταλία</span>
+        <span class="country-org">Cooperativa Sociale Insieme</span>
+      </div>
+      <div class="country-card reveal reveal-delay-2">
+        <span class="country-flag">🇷🇴</span>
+        <span class="country-name" data-el="Ρουμανία" data-en="Romania">Ρουμανία</span>
+        <span class="country-org">Fundația pentru Incluziune</span>
+      </div>
+      <div class="country-card reveal reveal-delay-3">
+        <span class="country-flag">🇵🇱</span>
+        <span class="country-name" data-el="Πολωνία" data-en="Poland">Πολωνία</span>
+        <span class="country-org">Stowarzyszenie Integracja</span>
+      </div>
+      <div class="country-card reveal reveal-delay-1">
+        <span class="country-flag">🇧🇬</span>
+        <span class="country-name" data-el="Βουλγαρία" data-en="Bulgaria">Βουλγαρία</span>
+        <span class="country-org">Фондация Включване</span>
+      </div>
+      <div class="country-card reveal reveal-delay-2">
+        <span class="country-flag">🇸🇮</span>
+        <span class="country-name" data-el="Σλοβενία" data-en="Slovenia">Σλοβενία</span>
+        <span class="country-org">Zavod za socialno vključevanje</span>
+      </div>
+      <div class="country-card reveal reveal-delay-3">
+        <span class="country-flag">🇩🇪</span>
+        <span class="country-name" data-el="Γερμανία" data-en="Germany">Γερμανία</span>
+        <span class="country-org" data-el="Ελληνογερμανικό Ινστιτούτο Νεολαίας" data-en="Hellenic-German Institute for Youth">Ελληνογερμανικό Ινστιτούτο Νεολαίας</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="container text-center">
+    <div class="reveal" style="max-width:600px;margin:0 auto;">
+      <span class="section-tag amber" style="justify-content:center;" data-el="ΓΙΝΕ ΕΤΑΙΡΟΣ" data-en="BECOME A PARTNER">ΓΙΝΕ ΕΤΑΙΡΟΣ</span>
+      <h2 data-el="Ενδιαφέρεστε για συνεργασία;" data-en="Interested in collaboration?">Ενδιαφέρεστε για συνεργασία;</h2>
+      <p style="color:var(--text-muted);margin-top:1rem;" data-el="Επικοινωνήστε μαζί μας για να εξερευνήσουμε μαζί τις δυνατότητες συνεργασίας μέσω Erasmus+ ή άλλων ευρωπαϊκών προγραμμάτων." data-en="Contact us to explore the possibilities of collaboration through Erasmus+ or other European programs.">Επικοινωνήστε μαζί μας για να εξερευνήσουμε τις δυνατότητες συνεργασίας μέσω Erasmus+ ή άλλων ευρωπαϊκών προγραμμάτων.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;margin-top:2rem;flex-wrap:wrap;">
+        <a href="contact.html" class="btn btn-amber">
+          <i class="fa-solid fa-handshake"></i>
+          <span data-el="Επικοινωνήστε μαζί μας" data-en="Contact Us">Επικοινωνήστε μαζί μας</span>
+        </a>
+        <a href="support.html" class="btn btn-outline">
+          <span data-el="Στηρίξτε μας" data-en="Support Us">Στηρίξτε μας</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Photos/ambassador.png" alt="Ambassador" class="footer-ambassador"/>
+        
+        <div class="footer-social">
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=100057519816523&locale=el_GR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social-icon" href="https://www.instagram.com/o_kipos_tis_lysous/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social-icon" href="https://www.linkedin.com/company/lysso-s-garden" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social-icon" href="https://www.youtube.com/@ΟΚήποςτηςΛυσούς" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Πλοήγηση" data-en="Navigation">Πλοήγηση</h4>
+        <ul>
+          <li><a href="programs.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Προγράμματα" data-en="Programs">Προγράμματα</span></a></li>
+          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Ποιοι Είμαστε" data-en="About Us">Ποιοι Είμαστε</span></a></li>
+          <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Νέα &amp; Δράσεις" data-en="News &amp; Activities">Νέα &amp; Δράσεις</span></a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Φωτογραφίες" data-en="Gallery">Φωτογραφίες</span></a></li>
+          <li><a href="support.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Στηρίξτε μας" data-en="Support Us">Στηρίξτε μας</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+302721097321">+30 27210 97321</a></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:lyssosg@gmail.com">lyssosg@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i><span data-el="Μεγάλη Μαντίνεια, Μεσσηνία" data-en="Megali Mantineia, Messinia">Μεγάλη Μαντίνεια, Μεσσηνία</span></li>
+          <li><i class="fa-solid fa-clock"></i><span data-el="Δευ–Παρ: 08:00–16:00" data-en="Mon–Fri: 08:00–16:00">Δευ–Παρ: 08:00–16:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-el="© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος." data-en="© 2026 Day Center Megali Mantineia. All rights reserved.">© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος.</span>
+      <span>Made with <i class="fa-solid fa-heart"></i> by Panagiotis Vionis</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-chevron-up"></i></button>
+<div class="floating-support-wrap">
+  <div class="floating-support-tooltip">
+    <span data-el="Γραμμή Στήριξης" data-en="Support Line">Γραμμή Στήριξης</span>
+    <strong>19831</strong>
+    <div data-el="Κινητά: 2,46€/κλήση" data-en="Mobile: €2.46/call">Κινητά: 2,46€/κλήση</div>
+    <div data-el="Σταθερά: 2,34€/κλήση" data-en="Landline: €2.34/call">Σταθερά: 2,34€/κλήση</div>
+  </div>
+  <a class="floating-support-btn" href="tel:19831" aria-label="Γραμμή Στήριξης 19831">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+<a class="floating-btn" href="contact.html" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a>
+<script src="js/kdif.js"></script>
+</body>
+</html>

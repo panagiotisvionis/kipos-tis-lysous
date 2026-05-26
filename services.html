@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Υπηρεσίες | Κήπος της Λυσούς</title>
+  <meta name="description" content="Δείτε το πλήρες φάσμα υπηρεσιών υποστήριξης του ΚΔΗΦ Μεγάλης Μαντίνειας — διημέρευση, μεταφορά, διατροφή."/>
+  <link rel="icon" href="Logos/Logo_0000_Kipos-min (1).png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="css/kdif.css" rel="stylesheet"/>
+  <style>
+    .services-intro-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--s-lg);
+      margin-bottom: 5rem;
+    }
+    .service-intro-item {
+      padding: 3.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transition: var(--t-slow);
+    }
+    .service-intro-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .service-intro-item:nth-child(1) { background: var(--forest-deep); }
+    .service-intro-item:nth-child(2) { background: var(--forest); }
+    .service-intro-item:nth-child(3) { background: var(--forest-med); }
+    .service-intro-item:hover { filter: brightness(1.08); transform: translateY(-3px); }
+    .service-intro-item > * { position: relative; z-index: 1; }
+    .service-intro-item i {
+      font-size: 2.8rem;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .service-intro-item h3 {
+      font-family: var(--f-display);
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+    }
+    .service-intro-item p {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.88rem;
+      line-height: 1.7;
+    }
+
+    .service-feature-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .service-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .service-feature-list li i {
+      color: var(--forest-med);
+      margin-top: 3px;
+      flex-shrink: 0;
+      font-size: 0.85rem;
+    }
+    .editorial-content.dark .service-feature-list li { color: rgba(255,255,255,0.72); }
+    .editorial-content.dark .service-feature-list li i { color: var(--amber-light); }
+
+    .framework-card {
+      background: var(--forest-deep);
+      border-radius: var(--r-xl);
+      padding: 4rem 5rem;
+      color: white;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .framework-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 10% 50%, rgba(45,122,88,0.35) 0%, transparent 60%),
+                  radial-gradient(ellipse at 90% 50%, rgba(217,112,53,0.18) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .framework-card > * { position: relative; z-index: 1; }
+    .framework-card h2 {
+      font-family: var(--f-display);
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      color: var(--white);
+      margin-bottom: 1.2rem;
+    }
+    .framework-card p {
+      color: rgba(255,255,255,0.68);
+      line-height: 1.82;
+      margin-bottom: 2rem;
+    }
+    .framework-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .framework-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: var(--r-md);
+      padding: 0.9rem 1.4rem;
+      backdrop-filter: blur(12px);
+      transition: var(--t);
+    }
+    .framework-badge:hover {
+      background: rgba(255,255,255,0.13);
+      border-color: var(--amber-light);
+    }
+    .framework-badge i { color: var(--amber-light); font-size: 1.1rem; }
+    .framework-badge span {
+      color: rgba(255,255,255,0.85);
+      font-family: var(--f-head);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+    }
+    .framework-image-wrap {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+    }
+    .framework-image-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    @media (max-width: 1000px) {
+      .services-intro-strip { grid-template-columns: 1fr; }
+      .framework-card { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" style="width: 155px; height: auto;" alt="Κήπος της Λυσούς"/>
+    </a>
+    <div class="header-actions">
+      <a class="header-support-link" data-i18n="header-support" href="support.html">ΣΤΗΡΙΞΤΕ ΜΑΣ</a>
+      <button class="lang-toggle-btn" id="lang-toggle" aria-label="Language Toggle">EN</button>
+      <button class="menu-open-btn" id="menu-open" aria-label="Open Menu">
+        <span data-i18n="menu-btn">ΜΕΝΟΥ</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV OVERLAY ══ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="nav-overlay-top">
+    <a class="nav-overlay-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" alt="Κήπος της Λυσούς"/>
+    </a>
+    <button class="nav-overlay-close" id="nav-close" aria-label="Close Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <nav class="overlay-nav">
+    <ul>
+      <li><a href="index.html" data-i18n="nav-home">ΑΡΧΙΚΗ</a></li>
+      <li><a href="programs.html" data-i18n="nav-programs">ΤΙ ΚΑΝΟΥΜΕ</a></li>
+      <li><a href="about.html" data-i18n="nav-about">ΠΟΙΟΙ ΕΙΜΑΣΤΕ</a></li>
+      <li><a href="news.html" data-i18n="nav-news">ΤΑ ΝΕΑ ΜΑΣ</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      <li><a href="support.html" data-i18n="nav-support">ΣΤΗΡΙΞΤΕ ΜΑΣ</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay-footer">
+    <div class="nav-overlay-lang" id="overlay-lang-status">GR</div>
+    <a class="accessibility-btn" href="#" aria-label="Accessibility"><i class="fa-solid fa-wheelchair"></i></a>
+  </div>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero hero-bg-services">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html" data-el="Αρχική" data-en="Home">Αρχική</a>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span data-el="Υπηρεσίες" data-en="Services">Υπηρεσίες</span>
+    </nav>
+    <h1 data-el="Φροντίδα στο επίκεντρο κάθε μέρας" data-en="Care at the heart of every day">Φροντίδα στο επίκεντρο κάθε μέρας</h1>
+    <p data-el="Παρέχουμε ολοκληρωμένη υποστήριξη που σέβεται την αξιοπρέπεια και εμπλουτίζει την καθημερινότητα κάθε ωφελούμενου." data-en="We provide comprehensive support that respects dignity and enriches the daily life of every beneficiary.">Παρέχουμε ολοκληρωμένη υποστήριξη που σέβεται την αξιοπρέπεια και εμπλουτίζει την καθημερινότητα κάθε ωφελούμενου.</p>
+  </div>
+</div>
+
+<!-- ══ SERVICES OVERVIEW STRIP ══ -->
+<section class="section" style="padding-bottom: 2rem;">
+  <div class="container">
+    <div class="section-header centered reveal" style="max-width: 640px; margin: 0 auto 3rem;">
+      <span class="section-tag amber" data-el="ΤΙ ΠΡΟΣΦΕΡΟΥΜΕ" data-en="WHAT WE OFFER">ΤΙ ΠΡΟΣΦΕΡΟΥΜΕ</span>
+      <h2 data-el="Τρεις πυλώνες φροντίδας" data-en="Three pillars of care">Τρεις πυλώνες φροντίδας</h2>
+    </div>
+    <div class="services-intro-strip reveal">
+      <div class="service-intro-item">
+        <i class="fa-solid fa-house-heart"></i>
+        <h3 data-el="Διημέρευση" data-en="Day Stay">Διημέρευση</h3>
+        <p data-el="Ένα ζεστό, ασφαλές περιβάλλον γεμάτο δραστηριότητες και αγάπη." data-en="A warm, safe environment full of activities and love.">Ένα ζεστό, ασφαλές περιβάλλον γεμάτο δραστηριότητες και αγάπη.</p>
+      </div>
+      <div class="service-intro-item">
+        <i class="fa-solid fa-bus"></i>
+        <h3 data-el="Μεταφορά" data-en="Transportation">Μεταφορά</h3>
+        <p data-el="Εξειδικευμένα οχήματα για ασφαλή καθημερινή μετακίνηση." data-en="Specialized vehicles for safe daily transportation.">Εξειδικευμένα οχήματα για ασφαλή καθημερινή μετακίνηση.</p>
+      </div>
+      <div class="service-intro-item">
+        <i class="fa-solid fa-bowl-food"></i>
+        <h3 data-el="Διατροφή" data-en="Nutrition">Διατροφή</h3>
+        <p data-el="Ισορροπημένα γεύματα προσαρμοσμένα στις ανάγκες κάθε ωφελούμενου." data-en="Balanced meals tailored to each beneficiary's needs.">Ισορροπημένα γεύματα προσαρμοσμένα στις ανάγκες κάθε ωφελούμενου.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICE 1: ΔΙΗΜΕΡΕΥΣΗ ══ -->
+<section class="section bg-light" style="padding-top: 5rem;">
+  <div class="container">
+    <div class="editorial-split reveal">
+      <div class="editorial-image">
+        <img src="Photos/20251004_143033.jpg" alt="Διημέρευση — Ημερήσια Φροντίδα"/>
+      </div>
+      <div class="editorial-content sage">
+        <span class="section-tag amber" data-el="01 — ΔΙΗΜΕΡΕΥΣΗ" data-en="01 — DAY STAY">01 — ΔΙΗΜΕΡΕΥΣΗ</span>
+        <h2 data-el="Ένα σπίτι εκτός σπιτιού" data-en="A home away from home">Ένα σπίτι εκτός σπιτιού</h2>
+        <p data-el="Ο Κήπος της Λυσούς προσφέρει ημερήσια φιλοξενία σε ένα περιβάλλον γεμάτο ζεστασιά, δημιουργία και ανθρωπιά. Κάθε μέρα γεμίζει με δραστηριότητες, εργαστήρια και βιωματική μάθηση που ενδυναμώνουν κάθε ωφελούμενο." data-en="The Day Center offers day care in an environment full of warmth, creativity and humanity. Every day is filled with activities, workshops and experiential learning that empower each beneficiary.">Ο Κήπος της Λυσούς προσφέρει ημερήσια φιλοξενία σε ένα περιβάλλον γεμάτο ζεστασιά, δημιουργία και ανθρωπιά. Κάθε μέρα γεμίζει με δραστηριότητες, εργαστήρια και βιωματική μάθηση που ενδυναμώνουν κάθε ωφελούμενο.</p>
+        <ul class="service-feature-list">
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Εργαστήρια τέχνης, μουσικής και κεραμικής" data-en="Art, music and ceramics workshops">Εργαστήρια τέχνης, μουσικής και κεραμικής</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Φυσικοθεραπεία και εργοθεραπεία" data-en="Physiotherapy and occupational therapy">Φυσικοθεραπεία και εργοθεραπεία</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Βιωματικές δραστηριότητες σε φυσικό περιβάλλον" data-en="Experiential activities in a natural environment">Βιωματικές δραστηριότητες σε φυσικό περιβάλλον</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Εξατομικευμένο πρόγραμμα για κάθε ωφελούμενο" data-en="Personalized program for each beneficiary">Εξατομικευμένο πρόγραμμα για κάθε ωφελούμενο</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICE 2: ΜΕΤΑΦΟΡΑ ══ -->
+<section class="section">
+  <div class="container">
+    <div class="editorial-split reverse reveal">
+      <div class="editorial-image">
+        <img src="Photos/20251111_113231.jpg" alt="Μεταφορά — Ασφαλής Μετακίνηση"/>
+      </div>
+      <div class="editorial-content dark">
+        <span class="section-tag amber" data-el="02 — ΜΕΤΑΦΟΡΑ" data-en="02 — TRANSPORTATION">02 — ΜΕΤΑΦΟΡΑ</span>
+        <h2 data-el="Κάθε διαδρομή, με ασφάλεια και φροντίδα" data-en="Every journey, with safety and care">Κάθε διαδρομή, με ασφάλεια και φροντίδα</h2>
+        <p data-el="Διαθέτουμε εξειδικευμένα οχήματα εξοπλισμένα με αναπηρικές ράμπες και ζώνες ασφαλείας, που εξασφαλίζουν άνετη και ασφαλή μεταφορά κάθε ωφελούμενου από και προς το κέντρο, καθημερινά." data-en="We have specialized vehicles equipped with disability ramps and safety belts, ensuring comfortable and safe transportation for each beneficiary to and from the center, every day.">Διαθέτουμε εξειδικευμένα οχήματα εξοπλισμένα με αναπηρικές ράμπες και ζώνες ασφαλείας, που εξασφαλίζουν άνετη και ασφαλή μεταφορά κάθε ωφελούμενου από και προς το κέντρο, καθημερινά.</p>
+        <ul class="service-feature-list">
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Εκπαιδευμένοι οδηγοί με εξειδίκευση στην αναπηρία" data-en="Trained drivers specialized in disability care">Εκπαιδευμένοι οδηγοί με εξειδίκευση στην αναπηρία</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Οχήματα με αναπηρικές ράμπες και εξοπλισμό" data-en="Vehicles with disability ramps and equipment">Οχήματα με αναπηρικές ράμπες και εξοπλισμό</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Καθημερινά δρομολόγια από Καλαμάτα" data-en="Daily routes from Kalamata">Καθημερινά δρομολόγια από Καλαμάτα</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Επικοινωνία σε πραγματικό χρόνο με τις οικογένειες" data-en="Real-time communication with families">Επικοινωνία σε πραγματικό χρόνο με τις οικογένειες</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SERVICE 3: ΔΙΑΤΡΟΦΗ ══ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="editorial-split reveal">
+      <div class="editorial-image">
+        <img src="Photos/20251004_132125.jpg" alt="Διατροφή — Ισορροπημένα Γεύματα"/>
+      </div>
+      <div class="editorial-content cream">
+        <span class="section-tag amber" data-el="03 — ΔΙΑΤΡΟΦΗ" data-en="03 — NUTRITION">03 — ΔΙΑΤΡΟΦΗ</span>
+        <h2 data-el="Φρεσκάδα και ισορροπία σε κάθε γεύμα" data-en="Freshness and balance in every meal">Φρεσκάδα και ισορροπία σε κάθε γεύμα</h2>
+        <p data-el="Το διατροφικό πρόγραμμα του Κήπου σχεδιάζεται από διατροφολόγο και προσαρμόζεται στις ιδιαίτερες ανάγκες κάθε ωφελούμενου. Χρησιμοποιούμε φρέσκα, τοπικά προϊόντα για γεύσεις που θρέφουν σώμα και ψυχή." data-en="The Garden's nutritional program is designed by a nutritionist and tailored to the specific needs of each beneficiary. We use fresh, local products for flavors that nourish body and soul.">Το διατροφικό πρόγραμμα του Κήπου σχεδιάζεται από διατροφολόγο και προσαρμόζεται στις ιδιαίτερες ανάγκες κάθε ωφελούμενου. Χρησιμοποιούμε φρέσκα, τοπικά προϊόντα για γεύσεις που θρέφουν σώμα και ψυχή.</p>
+        <ul class="service-feature-list">
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Εξατομικευμένα διαιτολόγια από ειδικό" data-en="Personalized diet plans by a specialist">Εξατομικευμένα διαιτολόγια από ειδικό</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Φρέσκα, εποχιακά και τοπικά προϊόντα" data-en="Fresh, seasonal and local products">Φρέσκα, εποχιακά και τοπικά προϊόντα</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Πρόγραμμα διατροφής σε συνεργασία με τις οικογένειες" data-en="Nutrition plan in collaboration with families">Πρόγραμμα διατροφής σε συνεργασία με τις οικογένειες</span></li>
+          <li><i class="fa-solid fa-check-circle"></i> <span data-el="Αντιμετώπιση διατροφικών αλλεργιών και ιδιαιτεροτήτων" data-en="Management of food allergies and special requirements">Αντιμετώπιση διατροφικών αλλεργιών και ιδιαιτεροτήτων</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LEGAL FRAMEWORK ══ -->
+<section class="section">
+  <div class="container">
+    <div class="framework-card reveal">
+      <div>
+        <span class="section-tag amber" style="color: var(--amber-light);" data-el="ΠΛΑΙΣΙΟ ΛΕΙΤΟΥΡΓΙΑΣ" data-en="OPERATIONAL FRAMEWORK">ΠΛΑΙΣΙΟ ΛΕΙΤΟΥΡΓΙΑΣ</span>
+        <h2 data-el="Νομικό &amp; Θεσμικό Πλαίσιο" data-en="Legal &amp; Institutional Framework">Νομικό &amp; Θεσμικό Πλαίσιο</h2>
+        <p data-el="Το Κέντρο λειτουργεί βάσει της κείμενης νομοθεσίας στο πλαίσιο του ΕΟΠΥΥ και του ΚΕΠΑ. Διαθέτει πλήρη άδεια λειτουργίας και εφαρμόζει υψηλά πρότυπα ποιότητας φροντίδας σε κάθε πτυχή των υπηρεσιών του." data-en="The Day Center operates under current legislation within the EOPYY and KEPA framework. It holds a full operating license and applies high quality care standards in every aspect of its services.">Το Κέντρο λειτουργεί βάσει της κείμενης νομοθεσίας στο πλαίσιο του ΕΟΠΥΥ και του ΚΕΠΑ. Διαθέτει πλήρη άδεια λειτουργίας και εφαρμόζει υψηλά πρότυπα ποιότητας φροντίδας σε κάθε πτυχή των υπηρεσιών του.</p>
+        <div class="framework-badges">
+          <div class="framework-badge">
+            <i class="fa-solid fa-certificate"></i>
+            <span data-el="Αδειοδοτημένο Κέντρο" data-en="Licensed Center">Αδειοδοτημένο Κέντρο</span>
+          </div>
+          <div class="framework-badge">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span data-el="ΕΟΠΥΥ &amp; ΚΕΠΑ" data-en="EOPYY &amp; KEPA">ΕΟΠΥΥ &amp; ΚΕΠΑ</span>
+          </div>
+          <div class="framework-badge">
+            <i class="fa-solid fa-users-gear"></i>
+            <span data-el="Εξειδικευμένο Προσωπικό" data-en="Specialized Staff">Εξειδικευμένο Προσωπικό</span>
+          </div>
+          <div class="framework-badge">
+            <i class="fa-solid fa-star"></i>
+            <span data-el="Πρότυπα Ποιότητας" data-en="Quality Standards">Πρότυπα Ποιότητας</span>
+          </div>
+        </div>
+      </div>
+      <div class="framework-image-wrap">
+        <img src="Photos/20251121_114158.jpg" alt="Εγκαταστάσεις ΚΔΗΦ"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="section" style="background: var(--bg-sage);">
+  <div class="container" style="text-align: center; max-width: 680px;">
+    <div class="reveal">
+      <span class="section-tag amber" data-el="ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ" data-en="GET IN TOUCH">ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</span>
+      <h2 style="margin: 1rem 0;" data-el="Έτοιμοι να ξεκινήσουμε μαζί;" data-en="Ready to start together?">Έτοιμοι να ξεκινήσουμε μαζί;</h2>
+      <p style="color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.8;" data-el="Επικοινωνήστε μαζί μας για να μάθετε περισσότερα για τις υπηρεσίες μας και να ορίσουμε μια πρώτη συνάντηση." data-en="Contact us to learn more about our services and to schedule a first meeting.">Επικοινωνήστε μαζί μας για να μάθετε περισσότερα για τις υπηρεσίες μας και να ορίσουμε μια πρώτη συνάντηση.</p>
+      <a class="btn btn-primary" href="contact.html">
+        <span data-el="ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ" data-en="CONTACT US">ΕΠΙΚΟΙΝΩΝΗΣΤΕ ΜΑΖΙ ΜΑΣ</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Photos/ambassador.png" alt="Ambassador" class="footer-ambassador"/>
+        
+        <div class="footer-social">
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=100057519816523&locale=el_GR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social-icon" href="https://www.instagram.com/o_kipos_tis_lysous/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social-icon" href="https://www.linkedin.com/company/lysso-s-garden" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social-icon" href="https://www.youtube.com/@ΟΚήποςτηςΛυσούς" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Πλοήγηση" data-en="Navigation">Πλοήγηση</h4>
+        <ul>
+          <li><a href="programs.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Προγράμματα" data-en="Programs">Προγράμματα</span></a></li>
+          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Ποιοι Είμαστε" data-en="About Us">Ποιοι Είμαστε</span></a></li>
+          <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Νέα &amp; Δράσεις" data-en="News &amp; Activities">Νέα &amp; Δράσεις</span></a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Φωτογραφίες" data-en="Gallery">Φωτογραφίες</span></a></li>
+          <li><a href="support.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Στηρίξτε μας" data-en="Support Us">Στηρίξτε μας</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+302721097321">+30 27210 97321</a></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:lyssosg@gmail.com">lyssosg@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i><span data-el="Μεγάλη Μαντίνεια, Μεσσηνία" data-en="Megali Mantineia, Messinia">Μεγάλη Μαντίνεια, Μεσσηνία</span></li>
+          <li><i class="fa-solid fa-clock"></i><span data-el="Δευ–Παρ: 08:00–16:00" data-en="Mon–Fri: 08:00–16:00">Δευ–Παρ: 08:00–16:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-el="© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος." data-en="© 2026 Day Center Megali Mantineia. All rights reserved.">© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος.</span>
+      <span>Made with <i class="fa-solid fa-heart"></i> by Panagiotis Vionis</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-chevron-up"></i></button>
+<div class="floating-support-wrap">
+  <div class="floating-support-tooltip">
+    <span data-el="Γραμμή Στήριξης" data-en="Support Line">Γραμμή Στήριξης</span>
+    <strong>19831</strong>
+    <div data-el="Κινητά: 2,46€/κλήση" data-en="Mobile: €2.46/call">Κινητά: 2,46€/κλήση</div>
+    <div data-el="Σταθερά: 2,34€/κλήση" data-en="Landline: €2.34/call">Σταθερά: 2,34€/κλήση</div>
+  </div>
+  <a class="floating-support-btn" href="tel:19831" aria-label="Γραμμή Στήριξης 19831">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+<a class="floating-btn" href="contact.html" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a>
+<script src="js/kdif.js"></script>
+</body>
+</html>

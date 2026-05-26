@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ο Κήπος της Λυσούς</title>
+  <meta name="description" content="Κέντρο Διημέρευσης Ημερήσιας Φροντίδας για άτομα με νοητική αναπηρία στη Μεσσηνία. Ένας χώρος συμπερίληψης, αγάπης και δημιουργίας."/>
+  <meta property="og:title" content="Ο Κήπος της Λυσούς"/>
+  <meta property="og:description" content="Κέντρο Διημέρευσης & Φροντίδας στη Μεγάλη Μαντίνεια, Μεσσηνία. Ένας χώρος για όλους."/>
+  <link rel="icon" href="Logos/Logo_0000_Kipos-min (1).png" style="width: 155px; height: auto;" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="css/kdif.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" style="width: 155px; height: auto;" alt="Κήπος της Λυσούς"/>
+    </a>
+    <div class="header-actions">
+      <a class="header-support-link" data-i18n="header-support" href="support.html">ΣΤΗΡΙΞΤΕ ΜΑΣ</a>
+      <button class="lang-toggle-btn" id="lang-toggle" aria-label="Language Toggle">EN</button>
+      <button class="menu-open-btn" id="menu-open" aria-label="Open Menu">
+        <span data-i18n="menu-btn">ΜΕΝΟΥ</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV OVERLAY ══ -->
+<div class="nav-overlay" id="nav-overlay" role="dialog" aria-modal="true">
+  <div class="nav-overlay-top">
+    <a class="nav-overlay-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" alt="Κήπος της Λυσούς"/>
+    </a>
+    <button class="nav-overlay-close" id="nav-close" aria-label="Close Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <nav class="overlay-nav" aria-label="Main Navigation">
+    <ul>
+      <li><a href="index.html" class="active" data-i18n="nav-home">ΑΡΧΙΚΗ</a></li>
+      <li><a href="programs.html" data-i18n="nav-programs">ΤΙ ΚΑΝΟΥΜΕ</a></li>
+      <li><a href="about.html" data-i18n="nav-about">ΠΟΙΟΙ ΕΙΜΑΣΤΕ</a></li>
+      <li><a href="news.html" data-i18n="nav-news">ΤΑ ΝΕΑ ΜΑΣ</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      <li><a href="support.html" data-i18n="nav-support">ΣΤΗΡΙΞΤΕ ΜΑΣ</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay-footer">
+    <div class="nav-overlay-lang" id="overlay-lang-status">GR</div>
+    <a class="accessibility-btn" href="#" aria-label="Accessibility">
+      <i class="fa-solid fa-wheelchair"></i>
+    </a>
+  </div>
+</div>
+
+<!-- ══ HOME HERO ══ -->
+<section class="home-hero" aria-label="Hero">
+  <div class="home-hero-bg" role="img" aria-label="Κήπος της Λυσούς"></div>
+  <div class="home-hero-overlay"></div>
+
+  <div class="container">
+    <div class="home-hero-content reveal">
+      <span class="home-hero-eyebrow" data-el="ΚΔΗΦ, Μεσσηνία" data-en="Day Center, Messinia">Μεγάλη Μαντίνεια, Μεσσηνία</span>
+      <h1 class="home-hero-title">
+        <span data-el="Ο Κήπος" data-en="Lyso's">Ο Κήπος</span>
+        <em data-el="της Λυσούς" data-en="Garden">της Λυσούς</em>
+      </h1>
+      <p class="home-hero-desc" data-el="Ένα κέντρο διημέρευσης και ημερήσιας φροντίδας όπου κάθε άτομο ανθίζει. Δημιουργικά εργαστήρια, ευρωπαϊκά προγράμματα και αγάπη χωρίς όρια." data-en="A day care and support center where every individual blossoms. Creative workshops, European programs and limitless care.">Ένα κέντρο διημέρευσης και φροντίδας όπου κάθε άτομο ανθίζει. Δημιουργικά εργαστήρια, ευρωπαϊκά προγράμματα και αγάπη χωρίς όρια.</p>
+      <div class="home-hero-actions">
+        <a href="programs.html" class="btn btn-amber">
+          <span data-el="Τα Προγράμματά μας" data-en="Our Programs">Τα Προγράμματά μας</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="support.html" class="btn btn-ghost">
+          <span data-el="Στηρίξτε μας" data-en="Support Us">Στηρίξτε μας</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating glass stat card -->
+    <div class="home-hero-card reveal reveal-delay-2">
+      <span class="hero-card-main-num counter" data-target="52">0</span>
+      <span class="hero-card-main-label" data-el="Ωφελούμενοι" data-en="Beneficiaries">Ωφελούμενοι</span>
+      <div class="hero-card-divider"></div>
+      <div class="hero-card-mini-grid">
+        <div class="hero-card-mini">
+          <span class="hero-card-mini-num counter" data-target="8">0</span>
+          <span class="hero-card-mini-label" data-el="Προσωπικό" data-en="Staff">Προσωπικό</span>
+        </div>
+        <div class="hero-card-mini">
+          <span class="hero-card-mini-num counter" data-target="7">0</span>
+          <span class="hero-card-mini-label" data-el="Εργαστήρια" data-en="Workshops">Εργαστήρια</span>
+        </div>
+        <div class="hero-card-mini">
+          <span class="hero-card-mini-num counter" data-target="6">0</span>
+          <span class="hero-card-mini-label" data-el="Χώρες EU" data-en="EU Countries">Χώρες EU</span>
+        </div>
+        <div class="hero-card-mini">
+          <span class="hero-card-mini-num" data-el="100%" data-en="100%">100%</span>
+          <span class="hero-card-mini-label" data-el="Διαφάνεια" data-en="Transparency">Διαφάνεια</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-hero-scroll" onclick="document.getElementById('mission-section').scrollIntoView({behavior:'smooth'})" aria-label="Scroll down">
+    <i class="fa-solid fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ══ MISSION ══ -->
+<section class="section" id="mission-section">
+  <div class="ambient-glow" style="bottom: -15%; right: -12%; transform: scale(1.3);"></div>
+  <div class="container">
+    <div class="mission-grid">
+      <div class="reveal">
+        <span class="section-tag amber" data-el="Η ΑΠΟΣΤΟΛΗ ΜΑΣ" data-en="OUR MISSION">Η ΑΠΟΣΤΟΛΗ ΜΑΣ</span>
+        <h2 data-el="Χτίζοντας μια κοινωνία χωρίς αποκλεισμούς" data-en="Building an inclusive society">Χτίζοντας μια κοινωνία χωρίς αποκλεισμούς</h2>
+        <p style="margin-top:1.2rem;color:var(--text-muted);line-height:1.85;" data-el="Στον Κήπο της Λυσούς πιστεύουμε ότι κάθε άτομο έχει μοναδικές δυνατότητες. Στόχος μας είναι η ανάπτυξη δεξιοτήτων, η κοινωνική ένταξη και η υποστήριξη της αυτονομίας μέσα από ένα περιβάλλον γεμάτο αγάπη και δημιουργικότητα." data-en="At the Lyso's Garden we believe every individual has unique potential. Our goal is skill development, social inclusion and the support of autonomy through an environment full of love and creativity.">Στον Κήπο της Λυσούς πιστεύουμε ότι κάθε άτομο έχει μοναδικές δυνατότητες. Στόχος μας είναι η ανάπτυξη δεξιοτήτων, η κοινωνική ένταξη και η υποστήριξη της αυτονομίας μέσα από ένα περιβάλλον γεμάτο αγάπη και δημιουργικότητα.</p>
+        <div class="mission-features" style="margin-top:2rem;">
+          <div class="mission-feature reveal">
+            <i class="fa-solid fa-heart"></i>
+            <span data-el="Ψυχοκοινωνική Υποστήριξη" data-en="Psychosocial Support">Ψυχοκοινωνική Υποστήριξη</span>
+          </div>
+          <div class="mission-feature reveal reveal-delay-1">
+            <i class="fa-solid fa-palette"></i>
+            <span data-el="Δημιουργικά Εργαστήρια" data-en="Creative Workshops">Δημιουργικά Εργαστήρια</span>
+          </div>
+          <div class="mission-feature reveal reveal-delay-2">
+            <i class="fa-solid fa-globe"></i>
+            <span data-el="Ευρωπαϊκά Προγράμματα" data-en="European Programs">Ευρωπαϊκά Προγράμματα</span>
+          </div>
+          <div class="mission-feature reveal reveal-delay-3">
+            <i class="fa-solid fa-laptop-code"></i>
+            <span data-el="Καινοτόμες Τεχνολογίες" data-en="Innovative Technologies">Καινοτόμες Τεχνολογίες</span>
+          </div>
+        </div>
+        <a href="about.html" class="btn btn-outline" style="margin-top:2.5rem;">
+          <span data-el="Η Ιστορία μας" data-en="Our Story">Η Ιστορία μας</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="mission-image-wrap reveal reveal-delay-1">
+        <img src="Photos/20251210_102828.jpg" alt="Ο Κήπος της Λυσούς"/>
+        <div class="mission-badge">
+          <h3>2016</h3>
+          <span data-el="ΙΔΡΥΣΗ" data-en="FOUNDED">ΙΔΡΥΣΗ</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ IMPACT STRIP ══ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="impact-strip reveal">
+      <div class="impact-strip-item">
+        <i class="fa-solid fa-hands-holding-child"></i>
+        <h3 data-el="Φροντίδα" data-en="Care">Φροντίδα</h3>
+        <p data-el="52 ωφελούμενοι λαμβάνουν καθημερινή εξειδικευμένη υποστήριξη από την ομάδα μας." data-en="52 beneficiaries receive daily specialized support from our team.">52 ωφελούμενοι λαμβάνουν καθημερινή εξειδικευμένη υποστήριξη από την ομάδα μας.</p>
+      </div>
+      <div class="impact-strip-item">
+        <i class="fa-solid fa-paintbrush"></i>
+        <h3 data-el="Δημιουργία" data-en="Creativity">Δημιουργία</h3>
+        <p data-el="7 εργαστήρια που μετατρέπουν κάθε μέρα σε μια πράξη έκφρασης, χαράς και ανακάλυψης." data-en="7 workshops that transform every day into an act of expression, joy and discovery.">7 εργαστήρια που μετατρέπουν κάθε μέρα σε μια πράξη έκφρασης, χαράς και ανακάλυψης.</p>
+      </div>
+      <div class="impact-strip-item">
+        <i class="fa-solid fa-earth-europe"></i>
+        <h3 data-el="Σύνδεση" data-en="Connection">Σύνδεση</h3>
+        <p data-el="Συνδέουμε τη Νότια Ελλάδα με την Ευρώπη. Συνεργαζόμαστε με το Ελληνογερμανικό Ινστιτούτο Νεολαίας και εταίρους από 6 χώρες." data-en="Connecting Southern Greece with Europe. We collaborate with the Hellenic-German Institute for Youth and partners from 6 countries.">Συνδέουμε τη Νότια Ελλάδα με την Ευρώπη. Συνεργαζόμαστε με το Ελληνογερμανικό Ινστιτούτο Νεολαίας και εταίρους από 6 χώρες.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EDITORIAL STORYTELLING ══ -->
+<section class="section bg-light">
+  <div class="container">
+    <div class="editorial-split reveal">
+      <div class="editorial-image">
+        <img src="Photos/20251216_103626.jpg" alt="Μια μέρα στον Κήπο"/>
+      </div>
+      <div class="editorial-content dark">
+        <span class="section-tag" style="color:var(--amber-light);margin-bottom:1.4rem;" data-el="ΑΝΘΡΩΠΙΝΕΣ ΙΣΤΟΡΙΕΣ" data-en="HUMAN STORIES">ΑΝΘΡΩΠΙΝΕΣ ΙΣΤΟΡΙΕΣ</span>
+        <h2 data-el="Κάθε μέρα, μια νέα αρχή" data-en="Every day, a new beginning">Κάθε μέρα, μια νέα αρχή</h2>
+        <p style="margin-top:1rem;" data-el="Στις 8 το πρωί ο κήπος ξυπνά. Φτάνουν τα πρώτα πρόσωπα — γεμάτα προσδοκία, γεμάτα ιστορία. Κάθε ωφελούμενος φέρνει μαζί του έναν κόσμο ολόκληρο." data-en="At 8am the garden wakes. The first faces arrive — full of anticipation, full of story. Each beneficiary brings with them an entire world.">Στις 8 το πρωί ο κήπος ξυπνά. Φτάνουν τα πρώτα πρόσωπα — γεμάτα προσδοκία, γεμάτα ιστορία. Κάθε ωφελούμενος φέρνει μαζί του έναν κόσμο ολόκληρο.</p>
+        <div class="editorial-blockquote">
+          <span data-el="«Εδώ μάθαμε να βλέπουμε τον γιο μας διαφορετικά — όχι για τα εμπόδια, αλλά για τη δύναμη που έχει μέσα του.»" data-en="«Here we learned to see our son differently — not for the obstacles, but for the strength he holds within.»">«Εδώ μάθαμε να βλέπουμε τον γιο μας διαφορετικά — όχι για τα εμπόδια, αλλά για τη δύναμη που έχει μέσα του.»</span>
+        </div>
+        <p data-el="— Γονέας ωφελούμενου" data-en="— Parent of a beneficiary" style="font-size:0.82rem;opacity:0.5;font-family:var(--f-head);letter-spacing:1px;">— Γονέας ωφελούμενου, 2024</p>
+        <a href="about.html" class="btn btn-amber" style="margin-top:2rem;">
+          <span data-el="Η ιστορία μας" data-en="Our story">Η ιστορία μας</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EUROPEAN IDENTITY ══ -->
+<section class="section bg-forest">
+  <div class="container">
+    <div class="section-header centered on-dark reveal" style="max-width:860px;margin-left:auto;margin-right:auto;">
+      <span class="section-tag white" data-el="ΕΥΡΩΠΑΪΚΗ ΤΑΥΤΟΤΗΤΑ" data-en="EUROPEAN IDENTITY">ΕΥΡΩΠΑΪΚΗ ΤΑΥΤΟΤΗΤΑ</span>
+      <h2 data-el="Συνδέοντας τη Νότια Ελλάδα με την Ευρώπη" data-en="Connecting Southern Greece with Europe">Συνδέοντας τη Νότια Ελλάδα με την Ευρώπη</h2>
+      <p data-el="Ενεργός εταίρος σε ευρωπαϊκό επίπεδο, με συμμετοχή σε προγράμματα Erasmus+ που ανοίγουν νέους ορίζοντες." data-en="An active partner at a European level, participating in Erasmus+ programs that open new horizons.">Ενεργός εταίρος σε ευρωπαϊκό επίπεδο, με συμμετοχή σε προγράμματα Erasmus+ που ανοίγουν νέους ορίζοντες.</p>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card has-image reveal" style="background-image:url('Photos/20251004_152600.jpg');">
+        <span class="room-emoji"></span>
+        <h3 class="room-name" data-el="Erasmus+" data-en="Erasmus+">Erasmus+</h3>
+        <p class="room-teacher" data-el="Ανταλλαγές &amp; Συνεργασία" data-en="Exchanges &amp; Cooperation">Ανταλλαγές &amp; Συνεργασία</p>
+        <p data-el="Ανταλλαγές νέων και εκπαιδευτικά προγράμματα για συμπερίληψη και καινοτομία στην κοινωνική φροντίδα." data-en="Youth exchanges and educational programs for inclusion and innovation in social care.">Ανταλλαγές νέων και εκπαιδευτικά προγράμματα για συμπερίληψη και καινοτομία.</p>
+      </div>
+      <div class="room-card has-image reveal reveal-delay-1" style="background-image:url('Photos/20251111_113247.jpg');">
+        <span class="room-emoji"></span>
+        <h3 class="room-name" data-el="Παρακολούθηση Προόδου" data-en="Progress Tracking">Παρακολούθηση Προόδου</h3>
+        <p class="room-teacher" data-el="Εξατομικευμένη Προσέγγιση" data-en="Personalized Support">Εξατομικευμένη Προσέγγιση</p>
+        <p data-el="Καθημερινή καταγραφή, οργάνωση και παρακολούθηση της εξέλιξης κάθεωφελούμενου." data-en="Daily organization and personalized tracking of each beneficiary’s progress and needs.">Εξατομικευμένη παρακολούθηση της εξέλιξης κάθε ωφελούμενου.</p>
+      </div>
+      <div class="room-card has-image reveal reveal-delay-2" style="background-image:url('Photos/123123.jpg');">
+        <span class="room-emoji"></span>
+        <h3 class="room-name" data-el="Διαφάνεια" data-en="Transparency">Blockchain Διαφάνεια</h3>
+        <p class="room-teacher" data-el="Απόλυτη Αξιοπιστία" data-en="Absolute Reliability">Απόλυτη Αξιοπιστία</p>
+        <p data-el="Χρήση Τεχνολογίας Blockchain για απόλυτη διαφάνεια στις δωρεές και τη χρήση των πόρων μας." data-en="Blockchain technology for absolute transparency in donations and use of our resources.">Απόλυτη διαφάνεια στις δωρεές μέσω Blockchain.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="testimonial-section">
+  <div class="container">
+    <div class="section-header centered reveal" style="max-width:640px;margin-left:auto;margin-right:auto;">
+      <span class="section-tag amber" data-el="ΟΙ ΑΝΘΡΩΠΟΙ ΜΑΣ ΜΙΛΟΥΝ" data-en="OUR PEOPLE SPEAK">ΟΙ ΑΝΘΡΩΠΟΙ ΜΑΣ ΜΙΛΟΥΝ</span>
+      <h2 data-el="Ιστορίες που μας εμπνέουν" data-en="Stories that inspire us">Ιστορίες που μας εμπνέουν</h2>
+      <p data-el="Η πραγματική αξία της δουλειάς μας μετριέται στα χαμόγελα, τις αγκαλιές και τις λέξεις των ανθρώπων που εμπιστεύονται τον Κήπο μας." data-en="The true value of our work is measured in the smiles, hugs and words of the people who trust our Garden.">Η πραγματική αξία της δουλειάς μας μετριέται στα χαμόγελα, τις αγκαλιές και τις λέξεις των ανθρώπων που εμπιστεύονται τον Κήπο μας.</p>
+    </div>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card reveal">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text" data-el="Ο γιος μου πηγαίνει στον Κήπο τρία χρόνια τώρα. Η αλλαγή που βλέπω κάθε μέρα — η αυτοπεποίθηση, η χαρά, η ανεξαρτησία — είναι το πιο όμορφο δώρο που μπορούσα να φανταστώ." data-en="My son has been attending Lyso's Garden for three years now. The change I see every day — the confidence, joy, independence — is the most beautiful gift I could have imagined.">Ο γιος μου πηγαίνει στον Κήπο τρία χρόνια τώρα. Η αλλαγή που βλέπω κάθε μέρα — η αυτοπεποίθηση, η χαρά, η ανεξαρτησία — είναι το πιο όμορφο δώρο που μπορούσα να φανταστώ.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" data-el="Μ" data-en="M">Μ</div>
+          <div>
+            <span class="testimonial-name" data-el="Μαρία Κ." data-en="Maria K.">Μαρία Κ.</span>
+            <span class="testimonial-role" data-el="Γονέας Ωφελούμενου" data-en="Parent of Beneficiary">Γονέας Ωφελούμενου</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-1">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text" data-el="Ήρθα ως εθελοντής για ένα μήνα. Έμεινα για δύο χρόνια. Αυτός ο χώρος σε αλλάζει από μέσα. Μαθαίνεις τι σημαίνει πραγματικά να βλέπεις τον άλλον." data-en="I came as a volunteer for a month. I stayed for two years. This place changes you from within. You learn what it truly means to see the other person.">Ήρθα ως εθελοντής για ένα μήνα. Έμεινα για δύο χρόνια. Αυτός ο χώρος σε αλλάζει από μέσα. Μαθαίνεις τι σημαίνει πραγματικά να βλέπεις τον άλλον.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">Ν</div>
+          <div>
+            <span class="testimonial-name">Lo</span>
+            <span class="testimonial-role" data-el="Εθελοντής" data-en="Volunteer">Εθελοντής</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal reveal-delay-2">
+        <span class="testimonial-quote-mark">"</span>
+        <p class="testimonial-text" data-el="Η συνεργασία μας με τον Κήπο της Λυσούς άνοιξε νέες προοπτικές για την ομάδα μας. Ένα μοντέλο που κάθε ευρωπαϊκή χώρα πρέπει να μελετήσει." data-en="Our collaboration with the Lyso's Garden through Erasmus+ opened new perspectives for our team. A model that every European country should study.">Η συνεργασία μας με τον Κήπο της Λυσούς μέσω Erasmus+ άνοιξε νέες προοπτικές για την ομάδα μας. Ένα μοντέλο που κάθε ευρωπαϊκή χώρα πρέπει να μελετήσει.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">A</div>
+          <div>
+            <span class="testimonial-name">Mikael Spieker</span>
+            <span class="testimonial-role" data-el="Εταίρος, Γερμανία" data-en="Partner, Germany">Εταίρος, Γερμανία</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ PARALLAX QUOTE ══ -->
+<div class="keno-gap" style="background-image:url('Photos/Messenger_creation_10D24D3E-3EC0-432A-B70D-29CDEBA16011.jpeg');">
+  <div class="container">
+    <h2 class="reveal" data-el="Η αγάπη είναι η γλώσσα που όλοι καταλαβαίνουμε." data-en="Love is the language we all understand.">Η αγάπη είναι η γλώσσα που όλοι καταλαβαίνουμε.</h2>
+  </div>
+</div>
+
+<!-- ══ SPONSORS ══ -->
+<section class="sponsors-section">
+  <div class="container">
+    <div class="sponsors-intro reveal">
+      <span class="section-tag amber" style="justify-content:center;" data-el="ΥΠΟΣΤΗΡΙΞΗ &amp; ΧΡΗΜΑΤΟΔΟΤΗΣΗ" data-en="SUPPORT &amp; FUNDING">ΥΠΟΣΤΗΡΙΞΗ &amp; ΧΡΗΜΑΤΟΔΟΤΗΣΗ</span>
+      <h2 style="margin-top:0.6rem;" data-el="Υποστηρικτές που πιστεύουν στο έργο μας" data-en="Supporters who believe in our work">Υποστηρικτές που πιστεύουν στο έργο μας</h2>
+      <p style="color:var(--text-muted);margin-top:1rem;font-size:1rem;line-height:1.8;" data-el="Με την εμπιστοσύνη θεσμικών φορέων, ευρωπαϊκών προγραμμάτων και ιδιωτών χορηγών, συνεχίζουμε το έργο μας κάθε μέρα." data-en="With the trust of institutional bodies, European programs and private sponsors, we continue our work every day.">Με την εμπιστοσύνη θεσμικών φορέων, ευρωπαϊκών προγραμμάτων και ιδιωτών χορηγών, συνεχίζουμε το έργο μας κάθε μέρα.</p>
+    </div>
+
+    <div class="sponsors-grid">
+      <div class="sponsor-card reveal">
+        
+        <img src="Photos/Δήμος_Καλαμάτας_(logo).svg.png" alt="Δήμος Καλαμάτας" class="sponsor-logo"/>
+        <span class="sponsor-name" data-el="Δήμος Καλαμάτας" data-en="Municipality of Kalamata">Δήμος Καλαμάτας</span>
+      </div>
+      
+      <div class="sponsor-card reveal reveal-delay-1">
+        <img src="Photos/perifereia-logo.jpg" alt="Περιφέρεια Πελοποννήσου" class="sponsor-logo"/>
+        <span class="sponsor-name" data-el="Περιφέρεια Πελοποννήσου" data-en="Region of Peloponnese">Περιφέρεια Πελοποννήσου</span>
+      </div>
+
+<div class="sponsor-card reveal reveal-delay-3">
+        <img src="Photos/erasmus.jpg" alt="Erasmus+" class="sponsor-logo"/>
+        <span class="sponsor-name">Erasmus+</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-1">
+        <img src="Photos/Eopyylog.png" alt="ΕΟΠΥΥ" class="sponsor-logo"/>
+        <span class="sponsor-name">ΕΟΠΥΥ</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-2">
+        <img src="Photos/dytiki mani.jpg" alt="Δήμος Δυτικής Μάνης" class="sponsor-logo"/>
+        <span class="sponsor-name" data-el="Δήμος Δυτικής Μάνης" data-en="Municipality of Western Mani">Δήμος Δυτικής Μάνης</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-3">
+        <img src="Photos/kapetan vasilis.jpg" alt="Ίδρυμα Καπετάν Βασίλη & Κάρμεν Κωνσταντακόπουλου" class="sponsor-logo"/>
+        <span class="sponsor-name" data-el="Ίδρυμα Καπετάν Βασίλη & Κάρμεν Κωνσταντακόπουλου" data-en="Capetan Vasilis & Carmen Konstantakopoulos Foundation">Ίδρυμα Καπετάν Βασίλη &amp; Κάρμεν Κωνσταντακόπουλου</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-1">
+        <img src="Photos/Micult.jpg" alt="Υπουργείο Πολιτισμού" class="sponsor-logo"/>
+        <span class="sponsor-name" data-el="Υπουργείο Πολιτισμού" data-en="Ministry of Culture">Υπουργείο Πολιτισμού</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-2">
+        <i class="fa-solid fa-heart sponsor-icon" style="color: var(--amber);"></i>
+        <span class="sponsor-name" data-el="Δωρεές Ιδιωτών" data-en="Private Donations">Δωρεές Ιδιωτών</span>
+      </div>
+
+      <div class="sponsor-card reveal reveal-delay-3">
+        <span style="font-size:2rem;line-height:1;display:block;margin-bottom:0.3rem;">🇱🇮</span>
+        <span class="sponsor-name" data-el="NIC Foundation, Λιχτενστάιν" data-en="NIC Foundation, Liechtenstein">NIC Foundation, Λιχτενστάιν</span>
+      </div>
+    </div>
+
+    <div style="text-align:center;" class="reveal">
+      <a href="support.html" class="btn btn-outline">
+        <i class="fa-solid fa-handshake"></i>
+        <span data-el="Γίνετε Χορηγός" data-en="Become a Sponsor">Γίνετε Χορηγός</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ LATEST NEWS ══ -->
+<section class="section bg-light">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:4rem;flex-wrap:wrap;gap:1.5rem;">
+      <div class="reveal">
+        <span class="section-tag amber" data-el="ΝΕΑ &amp; ΔΡΑΣΕΙΣ" data-en="NEWS &amp; ACTIVITIES">ΝΕΑ &amp; ΔΡΑΣΕΙΣ</span>
+        <h2 data-el="Τα τελευταία νέα από τον Κήπο" data-en="Latest news from the Garden">Τα τελευταία νέα από τον Κήπο</h2>
+      </div>
+      <a class="btn btn-outline reveal" href="news.html">
+        <span data-el="Όλα τα νέα" data-en="All news">Όλα τα νέα</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="rooms-grid">
+      <div class="reveal">
+        <div class="team-card">
+          <img src="Photos/20251004_132047.jpg" alt="Youth Exchange" class="team-member-img"/>
+          <div class="news-card-body">
+            <span class="news-tag">Erasmus+</span>
+            <h3 data-el="Επίσκεψη φοιτητών από το Katholische Stiftungshochschule München" data-en="Visit of students from Katholische Stiftungshochschule München">Επίσκεψη φοιτητών από το Katholische Stiftungshochschule München – Campus Benediktbeuern</h3>
+            <p class="news-card-excerpt" data-el="Φοιτητές από τη Γερμανία επισκέφθηκαν τον Κήπο της Λυσούς στο πλαίσιο του προγράμματος Erasmus+, ανταλλάσσοντας εμπειρίες και γνώσεις γύρω από τη συμπερίληψη και την κοινωνική φροντίδα." data-en="Students from Germany visited Lyso's Garden as part of the Erasmus+ programme, exchanging experiences around inclusion and social care.">Φοιτητές από τη Γερμανία επισκέφθηκαν τον Κήπο της Λυσούς στο πλαίσιο του Erasmus+, ανταλλάσσοντας εμπειρίες γύρω από τη συμπερίληψη και την κοινωνική φροντίδα.</p>
+            <a class="read-more-link" href="article-erasmus-katholic.html">
+              <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="team-card">
+          <img src="Photos/Messenger_creation_949963D7-800F-42B0-8CAB-FCC4DEB2E044.jpeg" alt="Συμπαν" class="team-member-img"/>
+          <div class="news-card-body">
+            <span class="news-tag" data-el="ΕΚΔΗΛΩΣΗ" data-en="EVENT">ΕΚΔΗΛΩΣΗ</span>
+            <h3 data-el="Το Συμπαν Μεσα Μας - 23 Νοεμβριου 2025, Αμφιθεατρο Φιλαρμονικης" data-en="The Universe Within Us - 23 November 2025, Philharmonic Amphitheatre">
+              Το Σύμπαν Μέσα Μας - 23 Νοεμβρίου 2025, Αμφιθέατρο Φιλαρμονικής
+            </h3>
+            <p class="news-card-excerpt" data-el="Παρασταση απο τον Κηπο της Λυσους και μαθητες απο το Δημοτικο Σχολειο Λεικων, το 9ο Νηπιαγωγειο και το 12ο Δημοτικο Καλαματας. Μια προσκληση να γιορτασουμε τη διαφορετικοτητα και τη χαρα της συνυπαρξης." data-en="A performance by Lyso's Garden and students from Leikon Primary School, the 9th Kindergarten and the 12th Primary School of Kalamata.">
+              Παράσταση από τον Κήπο της Λυσούς και μαθητές από το Δημοτικό Σχολείο Λείκων, το 9ο Νηπιαγωγείο και το 12ο Δημοτικό Καλαμάτας. Μια πρόσκληση να γιορτάσουμε τη διαφορετικότητα και τη χαρά της συνύπαρξης.
+            </p>
+            <a class="read-more-link" href="article-sympan.html">
+              <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="team-card">
+          <img src="Photos/Messenger_creation_5B67C70E-E870-4351-8FBF-D0421C1799CD.jpeg" alt="Βιωματικό Εργαστήριο Νηπιαγωγείο" class="team-member-img"/>
+          <div class="news-card-body">
+            <span class="news-tag" data-el="ΣΥΜΠΕΡΙΛΗΨΗ" data-en="INCLUSION">ΣΥΜΠΕΡΙΛΗΨΗ</span>
+            <h3 data-el="Βιωματικό εργαστήριο στο 23ο Νηπιαγωγείο Καλαμάτας" data-en="Experiential workshop at the 23rd Kindergarten of Kalamata">Βιωματικό εργαστήριο στο 23ο Νηπιαγωγείο Καλαμάτας</h3>
+            <p class="news-card-excerpt" data-el="Μέσα από παιχνίδι, κίνηση και μουσική, μιλήσαμε για τη διαφορετικότητα, τη συμπερίληψη και την αποδοχή. Συνεχίζουμε να χτίζουμε γέφυρες... όχι τείχη." data-en="Through play, movement and music, we talked about diversity, inclusion and acceptance. We keep building bridges... not walls.">Μέσα από παιχνίδι, κίνηση και μουσική, μιλήσαμε για τη διαφορετικότητα, τη συμπερίληψη και την αποδοχή. Συνεχίζουμε να χτίζουμε γέφυρες... όχι τείχη.</p>
+            <a class="read-more-link" href="article-nipiagogeio.html">
+              <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="container text-center">
+    <div class="reveal" style="max-width:700px;margin:0 auto;">
+      <span class="section-tag amber" style="justify-content:center;" data-el="ΓΙΝΕΤΕ ΜΕΡΟΣ ΤΗΣ ΙΣΤΟΡΙΑΣ" data-en="BECOME PART OF THE STORY">ΓΙΝΕΤΕ ΜΕΡΟΣ ΤΗΣ ΙΣΤΟΡΙΑΣ</span>
+      <h2 data-el="Κάθε συνεισφορά κάνει τη διαφορά" data-en="Every contribution makes a difference">Κάθε συνεισφορά κάνει τη διαφορά</h2>
+      <p style="color:var(--text-muted);margin-top:1.2rem;font-size:1.05rem;line-height:1.85;" data-el="Η αγάπη, ο χρόνος και η υλική στήριξή σας μετατρέπονται σε χαμόγελα, δεξιότητες και ευκαιρίες για τους ανθρώπους μας." data-en="Your love, time and material support transform into smiles, skills and opportunities for our people.">Η αγάπη, ο χρόνος και η υλική στήριξή σας μετατρέπονται σε χαμόγελα, δεξιότητες και ευκαιρίες για τους ανθρώπους μας.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap;">
+        <a href="support.html" class="btn btn-amber">
+          <i class="fa-solid fa-hand-holding-heart"></i>
+          <span data-el="Κάντε Δωρεά" data-en="Make a Donation">Κάντε Δωρεά</span>
+        </a>
+        <a href="contact.html" class="btn btn-outline">
+          <span data-el="Γίνε Εθελοντής" data-en="Become a Volunteer">Γίνε Εθελοντής</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Photos/ambassador.png" alt="Ambassador" class="footer-ambassador"/>
+        
+        <div class="footer-social">
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=100057519816523&locale=el_GR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social-icon" href="https://www.instagram.com/o_kipos_tis_lysous/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social-icon" href="https://www.linkedin.com/company/lysso-s-garden" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social-icon" href="https://www.youtube.com/@ΟΚήποςτηςΛυσούς" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Πλοήγηση" data-en="Navigation">Πλοήγηση</h4>
+        <ul>
+          <li><a href="programs.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Προγράμματα" data-en="Programs">Προγράμματα</span></a></li>
+          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Ποιοι Είμαστε" data-en="About Us">Ποιοι Είμαστε</span></a></li>
+          <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Νέα &amp; Δράσεις" data-en="News &amp; Activities">Νέα &amp; Δράσεις</span></a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Φωτογραφίες" data-en="Gallery">Φωτογραφίες</span></a></li>
+          <li><a href="support.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Στηρίξτε μας" data-en="Support Us">Στηρίξτε μας</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+302721097321">+30 27210 97321</a></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:lyssosg@gmail.com">lyssosg@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i><span data-el="Μεγάλη Μαντίνεια, Μεσσηνία" data-en="Megali Mantineia, Messinia">Μεγάλη Μαντίνεια, Μεσσηνία</span></li>
+          <li><i class="fa-solid fa-clock"></i><span data-el="Δευ–Παρ: 08:00–16:00" data-en="Mon–Fri: 08:00–16:00">Δευ–Παρ: 08:00–16:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-el="© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος." data-en="© 2026 Day Center Megali Mantineia. All rights reserved.">© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος.</span>
+      <span>Made with <i class="fa-solid fa-heart"></i> by Panagiotis Vionis</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-chevron-up"></i></button>
+<div class="floating-support-wrap">
+  <div class="floating-support-tooltip">
+    <span data-el="Γραμμή Στήριξης" data-en="Support Line">Γραμμή Στήριξης</span>
+    <strong>19831</strong>
+    <div data-el="Κινητά: 2,46€/κλήση" data-en="Mobile: €2.46/call">Κινητά: 2,46€/κλήση</div>
+    <div data-el="Σταθερά: 2,34€/κλήση" data-en="Landline: €2.34/call">Σταθερά: 2,34€/κλήση</div>
+  </div>
+  <a class="floating-support-btn" href="tel:19831" aria-label="Γραμμή Στήριξης 19831">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+<a class="floating-btn" href="contact.html" aria-label="Contact us"><i class="fa-solid fa-envelope"></i></a>
+<script src="js/kdif.js"></script>
+</body>
+</html>

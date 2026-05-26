@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Νέα &amp; Δράσεις | Κήπος της Λυσούς</title>
+  <meta name="description" content="Μείνετε ενημερωμένοι για τις δράσεις, τα Erasmus+ προγράμματα και τις εκδηλώσεις στον Κήπο της Λυσούς."/>
+  <link rel="icon" href="Logos/Logo_0000_Kipos-min (1).png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="css/kdif.css" rel="stylesheet"/>
+  <style>
+    .news-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 540px;
+      border-radius: var(--r-xl);
+      overflow: hidden;
+      box-shadow: var(--s-lg);
+    }
+    .news-featured-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .news-featured-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 9s var(--ease-out);
+    }
+    .news-featured:hover .news-featured-image img { transform: scale(1.06); }
+    .news-featured-badge {
+      position: absolute;
+      top: 1.8rem; left: 1.8rem;
+      background: var(--amber);
+      color: white;
+      font-family: var(--f-head);
+      font-weight: 800;
+      font-size: 0.68rem;
+      letter-spacing: 2px;
+      padding: 0.45rem 1.2rem;
+      border-radius: var(--r-full);
+    }
+    .news-featured-content {
+      background: var(--forest-deep);
+      color: var(--white);
+      padding: 4rem 4.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .news-featured-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+      font-size: 0.82rem;
+      color: var(--sage-light);
+      font-weight: 600;
+      font-family: var(--f-head);
+    }
+    .news-featured-content h2 {
+      font-family: var(--f-display);
+      font-size: clamp(1.6rem, 2.4vw, 2.3rem);
+      line-height: 1.28;
+      color: var(--white);
+      margin-bottom: 1.4rem;
+    }
+    .news-featured-content p {
+      color: rgba(255,255,255,0.72);
+      line-height: 1.82;
+      margin-bottom: 2.5rem;
+    }
+    .news-featured-content .read-more-link { color: var(--amber-light); }
+    .news-featured-content .read-more-link:hover { color: var(--white); }
+
+    .filter-bar {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      font-family: var(--f-head);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      padding: 0.6rem 1.5rem;
+      border-radius: var(--r-full);
+      border: 1.5px solid var(--cream-dark);
+      background: var(--white);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--t);
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--forest-med);
+      border-color: var(--forest-med);
+      color: var(--white);
+    }
+
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+    .news-article {
+      background: var(--white);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--s-sm);
+      transition: var(--t-slow);
+      display: flex;
+      flex-direction: column;
+    }
+    .news-article:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--s-lg);
+    }
+    .news-article-img-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 240px;
+    }
+    .news-article-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s var(--ease-out);
+    }
+    .news-article:hover .news-article-img-wrap img { transform: scale(1.08); }
+    .news-article-badge {
+      position: absolute;
+      top: 1.2rem; left: 1.2rem;
+      color: white;
+      padding: 0.35rem 1rem;
+      border-radius: var(--r-full);
+      font-family: var(--f-head);
+      font-weight: 800;
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+    }
+    .badge-erasmus       { background: var(--amber); }
+    .badge-event         { background: var(--forest-med); }
+    .badge-training      { background: var(--forest-deep); }
+    .badge-community     { background: var(--sage); color: var(--forest-deep) !important; }
+    .badge-collaboration { background: var(--eu-blue); }
+    .news-article-body {
+      padding: 2rem 2.2rem 2.4rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .news-article-date {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-family: var(--f-head);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 0.9rem;
+    }
+    .news-article-date i { color: var(--amber); }
+    .news-article-body h3 {
+      font-family: var(--f-display);
+      font-size: 1.2rem;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 0.9rem;
+      transition: color var(--t);
+    }
+    .news-article:hover .news-article-body h3 { color: var(--forest-med); }
+    .news-article-body p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.75;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+    .news-readmore {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--f-head);
+      font-weight: 700;
+      font-size: 0.72rem;
+      letter-spacing: 1.5px;
+      color: var(--forest-med);
+      text-decoration: none;
+      transition: gap var(--t), color var(--t);
+    }
+    .news-readmore:hover { gap: 14px; color: var(--amber); }
+    .news-readmore i { font-size: 0.7rem; }
+
+    .newsletter-block {
+      background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest) 100%);
+      border-radius: var(--r-2xl);
+      padding: 5rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .newsletter-block::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 20% 50%, rgba(45,122,88,0.35) 0%, transparent 60%),
+                  radial-gradient(ellipse at 80% 50%, rgba(217,112,53,0.22) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .newsletter-block > * { position: relative; z-index: 1; }
+    .newsletter-block h2 {
+      font-family: var(--f-display);
+      font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .newsletter-block p {
+      color: rgba(255,255,255,0.68);
+      max-width: 540px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.8;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: 1rem;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .newsletter-form input {
+      flex: 1;
+      padding: 1rem 1.6rem;
+      border-radius: var(--r-full);
+      border: 1.5px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.10);
+      color: white;
+      font-family: var(--f-body);
+      font-size: 0.95rem;
+      outline: none;
+      backdrop-filter: blur(12px);
+      transition: border-color var(--t);
+    }
+    .newsletter-form input::placeholder { color: rgba(255,255,255,0.48); }
+    .newsletter-form input:focus { border-color: var(--amber-light); }
+
+    @media (max-width: 1000px) {
+      .news-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 900px) {
+      .news-featured { grid-template-columns: 1fr; min-height: auto; }
+      .news-featured-image { min-height: 320px; }
+      .news-featured-content { padding: 3rem 2.5rem; }
+      .newsletter-form { flex-direction: column; }
+    }
+    @media (max-width: 600px) {
+      .news-grid { grid-template-columns: 1fr; }
+      .newsletter-block { padding: 3.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" style="width: 155px; height: auto;" alt="Κήπος της Λυσούς"/>
+    </a>
+    <div class="header-actions">
+      <a class="header-support-link" data-i18n="header-support" href="support.html">ΣΤΗΡΙΞΤΕ ΜΑΣ</a>
+      <button class="lang-toggle-btn" id="lang-toggle" aria-label="Language Toggle">EN</button>
+      <button class="menu-open-btn" id="menu-open" aria-label="Open Menu">
+        <span data-i18n="menu-btn">ΜΕΝΟΥ</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV OVERLAY ══ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="nav-overlay-top">
+    <a class="nav-overlay-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" alt="Κήπος της Λυσούς"/>
+    </a>
+    <button class="nav-overlay-close" id="nav-close" aria-label="Close Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <nav class="overlay-nav">
+    <ul>
+      <li><a href="index.html" data-i18n="nav-home">ΑΡΧΙΚΗ</a></li>
+      <li><a href="programs.html" data-i18n="nav-programs">ΤΙ ΚΑΝΟΥΜΕ</a></li>
+      <li><a href="about.html" data-i18n="nav-about">ΠΟΙΟΙ ΕΙΜΑΣΤΕ</a></li>
+      <li><a href="news.html" class="active" data-i18n="nav-news">ΤΑ ΝΕΑ ΜΑΣ</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      <li><a href="support.html" data-i18n="nav-support">ΣΤΗΡΙΞΤΕ ΜΑΣ</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay-footer">
+    <div class="nav-overlay-lang" id="overlay-lang-status">GR</div>
+    <a class="accessibility-btn" href="#" aria-label="Accessibility"><i class="fa-solid fa-wheelchair"></i></a>
+  </div>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero hero-bg-news">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html" data-el="Αρχική" data-en="Home">Αρχική</a>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span data-el="Νέα &amp; Δράσεις" data-en="News &amp; Activities">Νέα &amp; Δράσεις</span>
+    </nav>
+    <h1 data-el="Νέα από τον Κήπο της Λυσούς" data-en="News from Lyso's Garden">Νέα από τον Κήπο</h1>
+    <p data-el="Μάθετε για τις τελευταίες μας δράσεις, τις διεθνείς συνεργασίες και τις επιτυχίες των ανθρώπων μας." data-en="Learn about our latest activities, international collaborations and the achievements of our people.">Μάθετε για τις τελευταίες μας δράσεις, τις διεθνείς συνεργασίες και τις επιτυχίες των ανθρώπων μας.</p>
+  </div>
+</div>
+
+<!-- ══ FEATURED ARTICLE ══ -->
+<section class="section" style="padding-bottom: 2rem;">
+  <div class="container">
+    <div class="section-header reveal" style="margin-bottom: 2.5rem;">
+      <span class="section-tag amber" data-el="ΕΠΙΛΕΓΜΕΝΗ ΙΣΤΟΡΙΑ" data-en="FEATURED STORY">ΕΠΙΛΕΓΜΕΝΗ ΙΣΤΟΡΙΑ</span>
+    </div>
+    <div class="news-featured reveal">
+      <div class="news-featured-image">
+        <img src="Photos/Messenger_creation_949963D7-800F-42B0-8CAB-FCC4DEB2E044.jpeg" alt="Το Σύμπαν Μέσα Μας"/>
+        <span class="news-featured-badge" data-el="ΕΡΕΥΝΑ" data-en="RESEARCH">ΕΡΕΥΝΑ</span>
+      </div>
+      <div class="news-featured-content">
+        <div class="news-featured-meta">
+          <i class="fa-regular fa-calendar" style="color: var(--amber-light);"></i>
+          <span data-el="23 Μαίου 2026" data-en="23 May 2026">23 Μαίου 2026</span>
+          <span style="margin: 0 4px; opacity: 0.4;">|</span>
+          <i class="fa-solid fa-location-dot" style="color: var(--amber-light);"></i>
+          <span data-el="Πανεπιστήμιο Πελοποννήσου, Καλαμάτα" data-en="University of Peloponnese, Kalamata">Πανεπιστήμιο Πελοποννήσου, Καλαμάτα</span>
+        </div>
+        <h2 data-el="Το Σύμπαν Μέσα Μας: Βιωματική Έρευνα Κοινωνικο-Συναισθηματικής Ανάπτυξης" data-en="The Universe Within Us: Experiential Research on Socio-Emotional Development">Το Σύμπαν Μέσα Μας: Βιωματική Έρευνα Κοινωνικο-Συναισθηματικής Ανάπτυξης</h2>
+        <p data-el="Μια ολιστική βιωματική παρέμβαση με 30 ωφελούμενους έδειξε σημαντική βελτίωση κοινωνικο-συναισθηματικής λειτουργίας — επιβεβαιωμένη από τρεις ανεξάρτητες πηγές αξιολόγησης." data-en="A holistic experiential intervention with 30 beneficiaries showed significant improvement in socio-emotional functioning — confirmed by three independent sources of evaluation.">Μια ολιστική βιωματική παρέμβαση με 30 ωφελούμενους έδειξε σημαντική βελτίωση κοινωνικο-συναισθηματικής λειτουργίας (d = 2,45, p &lt; .001) — επιβεβαιωμένη από τρεις ανεξάρτητες πηγές αξιολόγησης.</p>
+        <a class="read-more-link" href="article-sympan.html" style="color: var(--amber-light);">
+          <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEWS ARTICLES GRID ══ -->
+<section class="section" style="padding-top: 3rem;">
+  <div class="container">
+
+    <div class="filter-bar reveal">
+      <button class="filter-btn active" data-el="ΟΛΑ" data-en="ALL">ΟΛΑ</button>
+      <button class="filter-btn">Erasmus+</button>
+      <button class="filter-btn" data-el="ΕΚΔΗΛΩΣΕΙΣ" data-en="EVENTS">ΕΚΔΗΛΩΣΕΙΣ</button>
+      <button class="filter-btn" data-el="ΕΚΠΑΙΔΕΥΣΗ" data-en="TRAINING">ΕΚΠΑΙΔΕΥΣΗ</button>
+      <button class="filter-btn" data-el="ΚΟΙΝΟΤΗΤΑ" data-en="COMMUNITY">ΚΟΙΝΟΤΗΤΑ</button>
+    </div>
+
+    <div class="news-grid">
+
+      <article class="news-article reveal">
+        <div class="news-article-img-wrap">
+          <img src="Photos/university.png" alt="Μνημόνιο Συνεργασίας Πανεπιστήμιο Πελοποννήσου"/>
+          <span class="news-article-badge badge-collaboration" data-el="ΣΥΝΕΡΓΑΣΙΑ" data-en="PARTNERSHIP">ΣΥΝΕΡΓΑΣΙΑ</span>
+        </div>
+        <div class="news-article-body">
+          <div class="news-article-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span data-el="Μεγάλη Μαντίνεια, 2026" data-en="Megali Mantineia, 2026">Μεγάλη Μαντίνεια, 2026</span>
+          </div>
+          <h3 data-el="Μνημόνιο Συνεργασίας με το Πανεπιστήμιο Πελοποννήσου" data-en="Memorandum of Cooperation with the University of Peloponnese">Μνημόνιο Συνεργασίας με το Πανεπιστήμιο Πελοποννήσου</h3>
+          <p data-el="Πενταετής συνεργασία με το Τμήμα Διοίκησης Επιχειρήσεων και Οργανισμών για ψηφιακές δεξιότητες, εφαρμοσμένη έρευνα και συμπερίληψη ατόμων με αναπηρία." data-en="A five-year partnership with the Department of Business and Organisation Administration to develop digital skills, applied research and inclusion for people with disabilities.">Πενταετής συνεργασία με το Τμήμα Διοίκησης Επιχειρήσεων και Οργανισμών για ψηφιακές δεξιότητες, εφαρμοσμένη έρευνα και συμπερίληψη ατόμων με αναπηρία.</p>
+          <a class="news-readmore" href="article-mnimonio.html">
+            <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="news-article reveal reveal-delay-1">
+        <div class="news-article-img-wrap">
+          <img src="Photos/Messenger_creation_949963D7-800F-42B0-8CAB-FCC4DEB2E044.jpeg" alt="Το Συμπαν Μεσα Μας"/>
+          <span class="news-article-badge badge-event" data-el="ΕΚΔΗΛΩΣΗ" data-en="EVENT">ΕΚΔΗΛΩΣΗ</span>
+        </div>
+        <div class="news-article-body">
+          <div class="news-article-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span data-el="23 Νοεμβρίου 2025" data-en="23 November 2025">23 Νοεμβρίου 2025</span>
+          </div>
+          <h3 data-el="Το Σύμπαν Μέσα Μας — Αμφιθέατρο Φιλαρμονικής" data-en="The Universe Within Us — Philharmonic Amphitheatre">Το Σύμπαν Μέσα Μας — Αμφιθέατρο Φιλαρμονικής</h3>
+          <p data-el="Παράσταση από τον Κήπο της Λυσούς και μαθητές από το Δημοτικό Σχολείο Λείκων, το 9ο Νηπιαγωγείο και το 12ο Δημοτικό Καλαμάτας. Μια πρόσκληση να γιορτάσουμε τη διαφορετικότητα και τη χαρά της συνύπαρξης." data-en="A performance by Lyso's Garden and students from Leikon Primary School, the 9th Kindergarten and the 12th Primary School. An invitation to celebrate diversity and the joy of coexistence.">Παράσταση από τον Κήπο της Λυσούς και μαθητές από το Δημοτικό Σχολείο Λείκων, το 9ο Νηπιαγωγείο και το 12ο Δημοτικό Καλαμάτας. Μια πρόσκληση να γιορτάσουμε τη διαφορετικότητα και τη χαρά της συνύπαρξης.</p>
+          <a class="news-readmore" href="article-sympan.html">
+            <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="news-article reveal reveal-delay-1">
+        <div class="news-article-img-wrap">
+          <img src="Photos/Messenger_creation_5B67C70E-E870-4351-8FBF-D0421C1799CD.jpeg" alt="Βιωματικό Εργαστήριο Νηπιαγωγείο"/>
+          <span class="news-article-badge badge-community" data-el="ΣΥΜΠΕΡΙΛΗΨΗ" data-en="INCLUSION">ΣΥΜΠΕΡΙΛΗΨΗ</span>
+        </div>
+        <div class="news-article-body">
+          <div class="news-article-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span data-el="23ο Νηπιαγωγείο Καλαμάτας" data-en="23rd Kindergarten of Kalamata">23ο Νηπιαγωγείο Καλαμάτας</span>
+          </div>
+          <h3 data-el="Βιωματικό εργαστήριο στο 23ο Νηπιαγωγείο Καλαμάτας" data-en="Experiential workshop at the 23rd Kindergarten of Kalamata">Βιωματικό εργαστήριο στο 23ο Νηπιαγωγείο Καλαμάτας</h3>
+          <p data-el="Μέσα από παιχνίδι, κίνηση και μουσική, μιλήσαμε για τη διαφορετικότητα, τη συμπερίληψη και την αποδοχή. Συνεχίζουμε να χτίζουμε γέφυρες... όχι τείχη." data-en="Through play, movement and music, we talked about diversity, inclusion and acceptance. We keep building bridges... not walls.">Μέσα από παιχνίδι, κίνηση και μουσική, μιλήσαμε για τη διαφορετικότητα, τη συμπερίληψη και την αποδοχή. Συνεχίζουμε να χτίζουμε γέφυρες... όχι τείχη.</p>
+          <a class="news-readmore" href="article-nipiagogeio.html">
+            <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+      <article class="news-article reveal reveal-delay-2">
+        <div class="news-article-img-wrap">
+          <img src="Photos/20251004_132047.jpg" alt="Erasmus Katholic München"/>
+          <span class="news-article-badge badge-erasmus">Erasmus+</span>
+        </div>
+        <div class="news-article-body">
+          <div class="news-article-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span>Campus Benediktbeuern</span>
+          </div>
+          <h3 data-el="Επίσκεψη φοιτητών από το Katholische Stiftungshochschule München" data-en="Visit of students from Katholische Stiftungshochschule München">Επίσκεψη φοιτητών από το Katholische Stiftungshochschule München</h3>
+          <p data-el="Φοιτητές από τη Γερμανία επισκέφθηκαν τον Κήπο στο πλαίσιο Erasmus+, ανταλλάσσοντας εμπειρίες γύρω από τη συμπερίληψη και την κοινωνική φροντίδα." data-en="Students from Germany visited Lyso's Garden as part of Erasmus+, exchanging experiences on inclusion and social care.">Φοιτητές από τη Γερμανία επισκέφθηκαν τον Κήπο στο πλαίσιο Erasmus+, ανταλλάσσοντας εμπειρίες γύρω από τη συμπερίληψη και την κοινωνική φροντίδα.</p>
+          <a class="news-readmore" href="article-erasmus-katholic.html">
+            <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ NEWSLETTER CTA ══ -->
+<section class="section">
+  <div class="container">
+    <div class="newsletter-block reveal">
+
+      <span class="section-tag amber"
+            style="margin-bottom: 1.5rem; display: inline-flex;"
+            data-el="ΜΕΙΝΕΤΕ ΕΝΗΜΕΡΩΜΕΝΟΙ"
+            data-en="STAY INFORMED">
+        ΜΕΙΝΕΤΕ ΕΝΗΜΕΡΩΜΕΝΟΙ
+      </span>
+
+      <h2 data-el="Οι ιστορίες μας, στο inbox σας"
+          data-en="Our stories, in your inbox">
+        Οι ιστορίες μας, στο inbox σας
+      </h2>
+
+      <p data-el="Εγγραφείτε για να λαμβάνετε νέα για τις δράσεις μας, τα Erasmus+ προγράμματα και τις εκδηλώσεις του Κήπου."
+         data-en="Subscribe to receive news about our activities, Erasmus+ programs and events of Lyso's Garden.">
+        Εγγραφείτε για να λαμβάνετε νέα για τις δράσεις μας, τα Erasmus+ προγράμματα και τις εκδηλώσεις του Κήπου.
+      </p>
+
+      <form class="newsletter-form"
+            action="https://formspree.io/f/xaqvajob"
+            method="POST">
+
+        <input type="email"
+               name="email"
+               placeholder="your@email.com"
+               aria-label="Email"
+               required />
+
+        <button type="submit" class="btn btn-amber">
+          <span data-el="ΕΓΓΡΑΦΗ"
+                data-en="SUBSCRIBE">
+            ΕΓΓΡΑΦΗ
+          </span>
+
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Photos/ambassador.png" alt="Ambassador" class="footer-ambassador"/>
+        
+        <div class="footer-social">
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=100057519816523&locale=el_GR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social-icon" href="https://www.instagram.com/o_kipos_tis_lysous/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social-icon" href="https://www.linkedin.com/company/lysso-s-garden" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social-icon" href="https://www.youtube.com/@ΟΚήποςτηςΛυσούς" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Πλοήγηση" data-en="Navigation">Πλοήγηση</h4>
+        <ul>
+          <li><a href="programs.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Προγράμματα" data-en="Programs">Προγράμματα</span></a></li>
+          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Ποιοι Είμαστε" data-en="About Us">Ποιοι Είμαστε</span></a></li>
+          <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Νέα &amp; Δράσεις" data-en="News &amp; Activities">Νέα &amp; Δράσεις</span></a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Φωτογραφίες" data-en="Gallery">Φωτογραφίες</span></a></li>
+          <li><a href="support.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Στηρίξτε μας" data-en="Support Us">Στηρίξτε μας</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+302721097321">+30 27210 97321</a></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:lyssosg@gmail.com">lyssosg@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i><span data-el="Μεγάλη Μαντίνεια, Μεσσηνία" data-en="Megali Mantineia, Messinia">Μεγάλη Μαντίνεια, Μεσσηνία</span></li>
+          <li><i class="fa-solid fa-clock"></i><span data-el="Δευ–Παρ: 08:00–16:00" data-en="Mon–Fri: 08:00–16:00">Δευ–Παρ: 08:00–16:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-el="© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος." data-en="© 2026 Day Center Megali Mantineia. All rights reserved.">© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος.</span>
+      <span>Made with <i class="fa-solid fa-heart"></i> by Panagiotis Vionis</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-chevron-up"></i></button>
+<div class="floating-support-wrap">
+  <div class="floating-support-tooltip">
+    <span data-el="Γραμμή Στήριξης" data-en="Support Line">Γραμμή Στήριξης</span>
+    <strong>19831</strong>
+    <div data-el="Κινητά: 2,46€/κλήση" data-en="Mobile: €2.46/call">Κινητά: 2,46€/κλήση</div>
+    <div data-el="Σταθερά: 2,34€/κλήση" data-en="Landline: €2.34/call">Σταθερά: 2,34€/κλήση</div>
+  </div>
+  <a class="floating-support-btn" href="tel:19831" aria-label="Γραμμή Στήριξης 19831">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+<a class="floating-btn" href="contact.html" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a>
+<script src="js/kdif.js"></script>
+</body>
+</html>

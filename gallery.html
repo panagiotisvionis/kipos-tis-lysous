@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Γκαλερί | Κήπος της Λυσούς</title>
+  <meta name="description" content="Φωτογραφίες από τις δράσεις, τις εκδηλώσεις και την καθημερινότητα στον Κήπο της Λυσούς."/>
+  <link rel="icon" href="Logos/Logo_0000_Kipos-min (1).png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="css/kdif.css" rel="stylesheet"/>
+  <style>
+    /* ── Gallery Filter Bar ── */
+    .gallery-filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      padding: 0.55rem 1.4rem;
+      border: 2px solid var(--forest-med);
+      border-radius: var(--r-full);
+      background: transparent;
+      color: var(--forest-med);
+      font-family: var(--f-head);
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all var(--t);
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--forest-med);
+      color: #fff;
+    }
+
+    /* ── Masonry Grid ── */
+    .masonry-grid {
+      columns: 3;
+      column-gap: 1.25rem;
+    }
+    @media (max-width: 900px) { .masonry-grid { columns: 2; } }
+    @media (max-width: 560px) { .masonry-grid { columns: 1; } }
+
+    .masonry-item {
+      break-inside: avoid;
+      margin-bottom: 1.25rem;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .masonry-item img {
+      width: 100%;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .masonry-item:hover img {
+      transform: scale(1.04);
+    }
+    .masonry-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(11,31,19,0.7) 0%, transparent 55%);
+      opacity: 0;
+      transition: opacity 0.35s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 1.2rem;
+    }
+    .masonry-item:hover .masonry-item-overlay { opacity: 1; }
+    .masonry-item-overlay .zoom-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255,255,255,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1rem;
+      margin-left: auto;
+    }
+    .masonry-item[data-category].hidden {
+      display: none;
+    }
+
+    /* ── Lightbox ── */
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(11,31,19,0.95);
+      z-index: 9000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
+    #lightbox.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 88vh;
+      border-radius: var(--r-md);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.6);
+      object-fit: contain;
+    }
+    .lb-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background var(--t);
+    }
+    .lb-close:hover { background: rgba(255,255,255,0.2); }
+    .lb-nav-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: #fff;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: background var(--t);
+    }
+    .lb-nav-btn:hover { background: rgba(255,255,255,0.22); }
+    .lb-prev { left: 1.5rem; }
+    .lb-next { right: 1.5rem; }
+    .lb-counter {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.6);
+      font-family: var(--f-head);
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" style="width: 155px; height: auto;" alt="Κήπος της Λυσούς"/>
+    </a>
+    <div class="header-actions">
+      <a class="header-support-link" data-i18n="header-support" href="support.html">ΣΤΗΡΙΞΤΕ ΜΑΣ</a>
+      <button class="lang-toggle-btn" id="lang-toggle" aria-label="Language Toggle">EN</button>
+      <button class="menu-open-btn" id="menu-open" aria-label="Open Menu">
+        <span data-i18n="menu-btn">ΜΕΝΟΥ</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV OVERLAY ══ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="nav-overlay-top">
+    <a class="nav-overlay-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" alt="Κήπος της Λυσούς"/>
+    </a>
+    <button class="nav-overlay-close" id="nav-close" aria-label="Close Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <nav class="overlay-nav">
+    <ul>
+      <li><a href="index.html" data-i18n="nav-home">ΑΡΧΙΚΗ</a></li>
+      <li><a href="programs.html" data-i18n="nav-programs">ΤΙ ΚΑΝΟΥΜΕ</a></li>
+      <li><a href="about.html" data-i18n="nav-about">ΠΟΙΟΙ ΕΙΜΑΣΤΕ</a></li>
+      <li><a href="news.html" data-i18n="nav-news">ΤΑ ΝΕΑ ΜΑΣ</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      <li><a href="support.html" data-i18n="nav-support">ΣΤΗΡΙΞΤΕ ΜΑΣ</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay-footer">
+    <div class="nav-overlay-lang" id="overlay-lang-status">GR</div>
+    <a class="accessibility-btn" href="#" aria-label="Accessibility"><i class="fa-solid fa-wheelchair"></i></a>
+  </div>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero hero-bg-gallery">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html" data-el="Αρχική" data-en="Home">Αρχική</a>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span data-el="Γκαλερί" data-en="Gallery">Γκαλερί</span>
+    </nav>
+    <h1 data-el="Γκαλερί" data-en="Gallery">Γκαλερί</h1>
+    <p data-el="Στιγμιότυπα από τη ζωή στον Κήπο μας — εργαστήρια, εκδηλώσεις, καθημερινές χαρές." data-en="Snapshots from life in our Garden — workshops, events, everyday joys.">Στιγμιότυπα από τη ζωή στον Κήπο μας — εργαστήρια, εκδηλώσεις, καθημερινές χαρές.</p>
+  </div>
+</div>
+
+<!-- ══ GALLERY ══ -->
+<section class="section bg-light">
+  <div class="container">
+
+    <!-- Filter Tabs -->
+    <div class="gallery-filters reveal">
+      <button class="filter-btn active" data-filter="all">
+        <span data-el="Όλες" data-en="All">Όλες</span>
+      </button>
+      <button class="filter-btn" data-filter="activities">
+        <span data-el="Εργαστήρια" data-en="Workshops">Εργαστήρια</span>
+      </button>
+      <button class="filter-btn" data-filter="events">
+        <span data-el="Εκδηλώσεις" data-en="Events">Εκδηλώσεις</span>
+      </button>
+      <button class="filter-btn" data-filter="spaces">
+        <span data-el="Χώροι" data-en="Spaces">Χώροι</span>
+      </button>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="masonry-grid" id="gallery-grid">
+
+      <!-- Activities / Workshops -->
+      <div class="masonry-item reveal" data-category="activities" data-src="Photos/20251121_104422.jpg">
+        <img src="Photos/20251121_104422.jpg" alt="Εργαστήριο δραστηριοτήτων" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1" data-category="activities" data-src="Photos/20251121_114158.jpg">
+        <img src="Photos/20251121_114158.jpg" alt="Δημιουργική απασχόληση" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2" data-category="spaces" data-src="Photos/20251004_143033.jpg">
+        <img src="Photos/20251004_143033.jpg" alt="Χώρος κήπου" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal" data-category="activities" data-src="Photos/20251121_120027.jpg">
+        <img src="Photos/20251121_120027.jpg" alt="Ομαδική δραστηριότητα" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1" data-category="events" data-src="Photos/20251119_100531.jpg">
+        <img src="Photos/20251119_100531.jpg" alt="Εκδήλωση" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2" data-category="activities" data-src="Photos/20251121_110142.jpg">
+        <img src="Photos/20251121_110142.jpg" alt="Εργαστήριο τέχνης" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal" data-category="spaces" data-src="Photos/20251004_143027.jpg">
+        <img src="Photos/20251004_143027.jpg" alt="Εξωτερικός χώρος" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1" data-category="activities" data-src="Photos/20251121_105936.jpg">
+        <img src="Photos/20251121_105936.jpg" alt="Δημιουργική απασχόληση" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2" data-category="events" data-src="Photos/20251119_100540.jpg">
+        <img src="Photos/20251119_100540.jpg" alt="Εκδήλωση στον κήπο" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal" data-category="activities" data-src="Photos/20251203_102618.jpg">
+        <img src="Photos/20251203_102618.jpg" alt="Εργαστήριο Δεκεμβρίου" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1" data-category="spaces" data-src="Photos/20251004_143019.jpg">
+        <img src="Photos/20251004_143019.jpg" alt="Εγκαταστάσεις" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2" data-category="events" data-src="Photos/20251119_100549.jpg">
+        <img src="Photos/20251119_100549.jpg" alt="Εκδήλωση" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal" data-category="activities" data-src="Photos/20251203_110503.jpg">
+        <img src="Photos/20251203_110503.jpg" alt="Ομαδική εργασία" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1" data-category="spaces" data-src="Photos/20251004_132330.jpg">
+        <img src="Photos/20251004_132330.jpg" alt="Κήπος" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2" data-category="activities" data-src="Photos/20251210_102828.jpg">
+        <img src="Photos/20251210_102828.jpg" alt="Εργαστήριο" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal" data-category="events" data-src="Photos/20251119_100610.jpg">
+        <img src="Photos/20251119_100610.jpg" alt="Εκδήλωση" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1" data-category="activities" data-src="Photos/20251121_104727.jpg">
+        <img src="Photos/20251121_104727.jpg" alt="Δημιουργικές δραστηριότητες" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2" data-category="spaces" data-src="Photos/20251004_132258.jpg">
+        <img src="Photos/20251004_132258.jpg" alt="Χώρος κήπου" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal" data-category="activities" data-src="Photos/20251210_103032.jpg">
+        <img src="Photos/20251210_103032.jpg" alt="Εργαστήριο Δεκεμβρίου" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1" data-category="activities" data-src="Photos/20251126_104139.jpg">
+        <img src="Photos/20251126_104139.jpg" alt="Εργαστήριο Νοεμβρίου" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2" data-category="spaces" data-src="Photos/20251004_132154.jpg">
+        <img src="Photos/20251004_132154.jpg" alt="Εγκαταστάσεις" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal" data-category="events" data-src="Photos/20251016_130654.jpg">
+        <img src="Photos/20251016_130654.jpg" alt="Εκδήλωση Οκτωβρίου" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-1" data-category="activities" data-src="Photos/20251126_113442.jpg">
+        <img src="Photos/20251126_113442.jpg" alt="Δημιουργική δραστηριότητα" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+      <div class="masonry-item reveal reveal-delay-2" data-category="spaces" data-src="Photos/20251004_132226.jpg">
+        <img src="Photos/20251004_132226.jpg" alt="Χώρος" loading="lazy"/>
+        <div class="masonry-item-overlay"><span class="zoom-icon"><i class="fa-solid fa-magnifying-glass-plus"></i></span></div>
+      </div>
+
+    </div><!-- /masonry-grid -->
+  </div>
+</section>
+
+<!-- ══ LIGHTBOX ══ -->
+<div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-close" id="lb-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+  <button class="lb-nav-btn lb-prev" id="lb-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+  <img id="lb-img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="Gallery photo"/>
+  <button class="lb-nav-btn lb-next" id="lb-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Photos/ambassador.png" alt="Ambassador" class="footer-ambassador"/>
+        
+        <div class="footer-social">
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=100057519816523&locale=el_GR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social-icon" href="https://www.instagram.com/o_kipos_tis_lysous/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social-icon" href="https://www.linkedin.com/company/lysso-s-garden" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social-icon" href="https://www.youtube.com/@ΟΚήποςτηςΛυσούς" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Πλοήγηση" data-en="Navigation">Πλοήγηση</h4>
+        <ul>
+          <li><a href="programs.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Προγράμματα" data-en="Programs">Προγράμματα</span></a></li>
+          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Ποιοι Είμαστε" data-en="About Us">Ποιοι Είμαστε</span></a></li>
+          <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Νέα &amp; Δράσεις" data-en="News &amp; Activities">Νέα &amp; Δράσεις</span></a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Φωτογραφίες" data-en="Gallery">Φωτογραφίες</span></a></li>
+          <li><a href="support.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Στηρίξτε μας" data-en="Support Us">Στηρίξτε μας</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+302721097321">+30 27210 97321</a></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:lyssosg@gmail.com">lyssosg@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i><span data-el="Μεγάλη Μαντίνεια, Μεσσηνία" data-en="Megali Mantineia, Messinia">Μεγάλη Μαντίνεια, Μεσσηνία</span></li>
+          <li><i class="fa-solid fa-clock"></i><span data-el="Δευ–Παρ: 08:00–16:00" data-en="Mon–Fri: 08:00–16:00">Δευ–Παρ: 08:00–16:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-el="© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος." data-en="© 2026 Day Center Megali Mantineia. All rights reserved.">© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος.</span>
+      <span>Made with <i class="fa-solid fa-heart"></i> by Panagiotis Vionis</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-chevron-up"></i></button>
+<div class="floating-support-wrap">
+  <div class="floating-support-tooltip">
+    <span data-el="Γραμμή Στήριξης" data-en="Support Line">Γραμμή Στήριξης</span>
+    <strong>19831</strong>
+    <div data-el="Κινητά: 2,46€/κλήση" data-en="Mobile: €2.46/call">Κινητά: 2,46€/κλήση</div>
+    <div data-el="Σταθερά: 2,34€/κλήση" data-en="Landline: €2.34/call">Σταθερά: 2,34€/κλήση</div>
+  </div>
+  <a class="floating-support-btn" href="tel:19831" aria-label="Γραμμή Στήριξης 19831">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+<a class="floating-btn" href="contact.html" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a>
+
+<script src="js/kdif.js"></script>
+<script>
+(function () {
+  // ── Gallery Filter ──────────────────────────────
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const items = document.querySelectorAll('.masonry-item[data-category]');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      items.forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // ── Lightbox ────────────────────────────────────
+  const lightbox = document.getElementById('lightbox');
+  const lbImg    = document.getElementById('lb-img');
+  const lbClose  = document.getElementById('lb-close');
+  const lbPrev   = document.getElementById('lb-prev');
+  const lbNext   = document.getElementById('lb-next');
+  const lbCounter = document.getElementById('lb-counter');
+
+  let currentIndex = 0;
+  let visibleItems = [];
+
+  function getVisible() {
+    return Array.from(items).filter(i => !i.classList.contains('hidden'));
+  }
+
+  function openLightbox(index) {
+    visibleItems = getVisible();
+    currentIndex = index;
+    lbImg.src = visibleItems[currentIndex].dataset.src;
+    lbCounter.textContent = (currentIndex + 1) + ' / ' + visibleItems.length;
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + visibleItems.length) % visibleItems.length;
+    lbImg.src = visibleItems[currentIndex].dataset.src;
+    lbCounter.textContent = (currentIndex + 1) + ' / ' + visibleItems.length;
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % visibleItems.length;
+    lbImg.src = visibleItems[currentIndex].dataset.src;
+    lbCounter.textContent = (currentIndex + 1) + ' / ' + visibleItems.length;
+  }
+
+  items.forEach((item, i) => {
+    item.addEventListener('click', () => {
+      visibleItems = getVisible();
+      const visibleIndex = visibleItems.indexOf(item);
+      if (visibleIndex !== -1) openLightbox(visibleIndex);
+    });
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click', showPrev);
+  lbNext.addEventListener('click', showNext);
+
+  lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') showPrev();
+    if (e.key === 'ArrowRight') showNext();
+  });
+})();
+</script>
+</body>
+</html>

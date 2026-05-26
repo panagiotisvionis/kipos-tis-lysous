@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Τα Προγράμματά μας | Κήπος της Λυσούς</title>
+  <meta name="description" content="7 εξειδικευμένα εργαστήρια σχεδιασμένα να ενισχύουν την αυτονομία και τη δημιουργικότητα των ωφελουμένων μας."/>
+  <link rel="icon" href="Logos/Logo_0000_Kipos-min (1).png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="css/kdif.css" rel="stylesheet"/>
+  <style>
+    /* ── Alternating program rows ── */
+    .program-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      overflow: hidden;
+      border-radius: var(--r-xl);
+      box-shadow: var(--s-md);
+      margin-bottom: 2.5rem;
+      min-height: 420px;
+    }
+    .program-row.reverse .program-image { order: 2; }
+    .program-row.reverse .program-body  { order: 1; }
+
+    .program-image {
+      position: relative;
+      overflow: hidden;
+      height: 420px;
+    }
+    .program-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.8s var(--ease-out);
+    }
+    .program-row:hover .program-image img { transform: scale(1.04); }
+
+    .program-body {
+      background: var(--white);
+      padding: 3.5rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .program-row.alt .program-body { background: var(--bg-sage); }
+
+    .program-emoji-large {
+      font-size: 3.5rem;
+      line-height: 1;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+    .program-goal {
+      font-family: var(--f-head);
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--amber);
+      margin-bottom: 0.6rem;
+    }
+    .program-body h3 {
+      font-family: var(--f-head);
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 800;
+      color: var(--forest);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .program-body p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 1rem;
+      max-width: 480px;
+    }
+
+    @media (max-width: 900px) {
+      .program-row,
+      .program-row.reverse { grid-template-columns: 1fr; }
+      .program-row.reverse .program-image { order: 0; }
+      .program-row.reverse .program-body  { order: 0; }
+      .program-image { min-height: 280px; }
+      .program-body  { padding: 2.5rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" style="width: 155px; height: auto;" alt="Κήπος της Λυσούς"/>
+    </a>
+    <div class="header-actions">
+      <a class="header-support-link" data-i18n="header-support" href="support.html">ΣΤΗΡΙΞΤΕ ΜΑΣ</a>
+      <button class="lang-toggle-btn" id="lang-toggle" aria-label="Language Toggle">EN</button>
+      <button class="menu-open-btn" id="menu-open" aria-label="Open Menu">
+        <span data-i18n="menu-btn">ΜΕΝΟΥ</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV OVERLAY ══ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="nav-overlay-top">
+    <a class="nav-overlay-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" alt="Κήπος της Λυσούς"/>
+    </a>
+    <button class="nav-overlay-close" id="nav-close" aria-label="Close Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <nav class="overlay-nav">
+    <ul>
+      <li><a href="index.html" data-i18n="nav-home">ΑΡΧΙΚΗ</a></li>
+      <li><a href="programs.html" class="active" data-i18n="nav-programs">ΤΙ ΚΑΝΟΥΜΕ</a></li>
+      <li><a href="about.html" data-i18n="nav-about">ΠΟΙΟΙ ΕΙΜΑΣΤΕ</a></li>
+      <li><a href="news.html" data-i18n="nav-news">ΤΑ ΝΕΑ ΜΑΣ</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      <li><a href="support.html" data-i18n="nav-support">ΣΤΗΡΙΞΤΕ ΜΑΣ</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay-footer">
+    <div class="nav-overlay-lang" id="overlay-lang-status">GR</div>
+    <a class="accessibility-btn" href="#" aria-label="Accessibility"><i class="fa-solid fa-wheelchair"></i></a>
+  </div>
+</div>
+
+<!-- ══ CINEMATIC HERO ══ -->
+<div class="page-hero hero-bg-programs">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html" data-el="Αρχική" data-en="Home">Αρχική</a>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span data-el="Τα Προγράμματά μας" data-en="Our Programs">Τα Προγράμματά μας</span>
+    </nav>
+    <h1 data-el="Εργαστήρια Δημιουργίας" data-en="Creative Workshops">Εργαστήρια Δημιουργίας</h1>
+    <p data-el="Εξειδικευμένες δράσεις που προάγουν την αυτονομία, την έκφραση και την κοινωνική συμμετοχή." data-en="Specialized activities that promote autonomy, expression and social participation.">Εξειδικευμένες δράσεις που προάγουν την αυτονομία, την έκφραση και την κοινωνική συμμετοχή.</p>
+  </div>
+</div>
+
+<!-- ══ INTRO ══ -->
+<section class="section-sm bg-light">
+  <div class="container text-center">
+    <div class="reveal" style="max-width:760px;margin:0 auto;">
+      <span class="section-tag amber" style="justify-content:center;" data-el="7 ΕΞΕΙΔΙΚΕΥΜΕΝΑ ΕΡΓΑΣΤΗΡΙΑ" data-en="7 SPECIALIZED WORKSHOPS">7 ΕΞΕΙΔΙΚΕΥΜΕΝΑ ΕΡΓΑΣΤΗΡΙΑ</span>
+      <h2 style="margin-top:0.6rem;" data-el="Δραστηριότητες για όλους" data-en="Activities for every individual">Δραστηριότητες για όλους</h2>
+      <p style="color:var(--text-muted);margin-top:1rem;font-size:1.05rem;line-height:1.85;" data-el="Κάθε εργαστήριο σχεδιάστηκε με συγκεκριμένους θεραπευτικούς στόχους, εστιάζοντας στη μοναδικότητα κάθε ωφελούμενου. Μέσα από τη χαρά της δημιουργίας, ανθίζουν δυνατότητες που μόνο αγάπη και υπομονή μπορούν να αναδείξουν." data-en="Each workshop was designed with specific therapeutic goals, focusing on the uniqueness of each beneficiary. Through the joy of creativity, abilities blossom that only love and patience can reveal.">Κάθε εργαστήριο σχεδιάστηκε με συγκεκριμένους θεραπευτικούς στόχους, εστιάζοντας στη μοναδικότητα κάθε ωφελούμενου. Μέσα από τη χαρά της δημιουργίας, ανθίζουν δυνατότητες που μόνο αγάπη και υπομονή μπορoύν να αναδείξουν.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ALTERNATING PROGRAMS ══ -->
+<section class="section">
+  <div class="container">
+
+    <!-- 1. Ceramics -->
+    <div class="program-row reveal">
+      <div class="program-image">
+        <img src="Photos/Messenger_creation_72324B03-EFCC-4492-8821-9D0F4E17E4AC.jpeg" alt="Εικαστικά και Κεραμική"/>
+      </div>
+      <div class="program-body">
+        <p class="program-goal" data-el="Στόχος: Λεπτή Κινητικότητα &amp; Έκφραση" data-en="Goal: Fine Motor Skills &amp; Expression">Στόχος: Λεπτή Κινητικότητα &amp; Έκφραση</p>
+        <h3 data-el="Εικαστικά &amp; Κεραμική" data-en="Arts &amp; Ceramics">Εικαστικά &amp; Κεραμική</h3>
+        <p data-el="Μέσα από την επαφή με τον πηλό, οι ωφελούμενοι αναπτύσσουν τις αισθήσεις τους και εκφράζουν τον εσωτερικό τους κόσμο, δημιουργώντας μοναδικά έργα τέχνης που αντανακλούν τη δική τους ψυχή." data-en="Through contact with clay, beneficiaries develop their senses and express their inner world, creating unique works of art that reflect their own soul.">Μέσα από την επαφή με τον πηλό, οι ωφελούμενοι αναπτύσσουν τις αισθήσεις τους και εκφράζουν τον εσωτερικό τους κόσμο, δημιουργώντας μοναδικά έργα τέχνης που αντανακλούν τη δική τους ψυχή.</p>
+      </div>
+    </div>
+
+    <!-- 2. Music (reversed) -->
+    <div class="program-row reverse alt reveal reveal-delay-1">
+      <div class="program-image">
+        <img src="Photos/Messenger_creation_98F339CF-CF23-444C-A18E-81C2266889B3.jpeg" alt="Μουσική Παιδεία"/>
+      </div>
+      <div class="program-body">
+        <p class="program-goal" data-el="Στόχος: Επικοινωνία &amp; Ρυθμός" data-en="Goal: Communication &amp; Rhythm">Στόχος: Επικοινωνία &amp; Ρυθμός</p>
+        <h3 data-el="Μουσική Παιδεία" data-en="Music Education">Μουσική Παιδεία</h3>
+        <p data-el="Η μουσική αποτελεί παγκόσμια γλώσσα επικοινωνίας. Μέσα από τη ρυθμική αγωγή και το τραγούδι, οι ωφελούμενοι εκφράζουν συναισθήματα που συχνά δεν μπορούν να αποδώσουν με λόγια." data-en="Music is a universal language of communication. Through rhythmic education and singing, beneficiaries express emotions that they often cannot convey in words.">Η μουσική αποτελεί παγκόσμια γλώσσα επικοινωνίας. Μέσα από τη ρυθμική αγωγή και το τραγούδι, οι ωφελούμενοι εκφράζουν συναισθήματα που συχνά δεν μπορούν να αποδώσουν με λόγια.</p>
+      </div>
+    </div>
+
+    <!-- 3. Occupational Therapy -->
+    <div class="program-row reveal">
+      <div class="program-image">
+        <img src="Photos/Messenger_creation_8723C8AF-989B-4A86-8388-E2DD7BF42E90.jpeg" alt="Εργοθεραπεία"/>
+      </div>
+      <div class="program-body">
+        <p class="program-goal" data-el="Στόχος: Λειτουργική Αυτονομία" data-en="Goal: Functional Autonomy">Στόχος: Λειτουργική Αυτονομία</p>
+        <h3 data-el="Εργοθεραπεία" data-en="Occupational Therapy">Εργοθεραπεία</h3>
+        <p data-el="Στοχευμένες δραστηριότητες που βελτιώνουν την καθημερινή λειτουργικότητα και την κατάκτηση βασικών δεξιοτήτων αυτοεξυπηρέτησης, ενισχύοντας την αυτοεκτίμηση και την ανεξαρτησία." data-en="Targeted activities that improve daily functionality and the acquisition of basic self-care skills, boosting self-esteem and independence.">Στοχευμένες δραστηριότητες που βελτιώνουν την καθημερινή λειτουργικότητα και την κατάκτηση βασικών δεξιοτήτων αυτοεξυπηρέτησης, ενισχύοντας την αυτοεκτίμηση και την ανεξαρτησία.</p>
+      </div>
+    </div>
+
+    <!-- 4. Independent Living (reversed) -->
+    <div class="program-row reverse alt reveal reveal-delay-1">
+      <div class="program-image">
+        <img src="Photos/Messenger_creation_C0E03313-4214-43CF-A485-F4E0E967517C.jpeg" alt="Αυτόνομη Διαβίωση"/>
+      </div>
+      <div class="program-body">
+        <p class="program-goal" data-el="Στόχος: Καθημερινές Δεξιότητες" data-en="Goal: Daily Skills">Στόχος: Καθημερινές Δεξιότητες</p>
+        <h3 data-el="Αυτόνομη Διαβίωση" data-en="Independent Living">Αυτόνομη Διαβίωση</h3>
+        <p data-el="Εκπαιδεύουμε τους ωφελούμενους στη μαγειρική, την καθαριότητα και τη διαχείριση του προσωπικού τους χώρου, ενισχύοντας την αυτοπεποίθηση και δίνοντας τους τα εφόδια για μια πιο ανεξάρτητη ζωή." data-en="We train beneficiaries in cooking, cleaning and managing their personal space, enhancing self-confidence and giving them the tools for a more independent life.">Εκπαιδεύουμε τους ωφελούμενους στη μαγειρική, την καθαριότητα και τη διαχείριση του προσωπικού τους χώρου, ενισχύοντας την αυτοπεποίθηση και δίνοντας τους τα εφόδια για μια πιο ανεξάρτητη ζωή.</p>
+      </div>
+    </div>
+
+    <!-- 5. Digital Skills -->
+    <div class="program-row reveal">
+      <div class="program-image">
+        <img src="Photos/ψηφιακά.png" alt="Ψηφιακές Δεξιότητες"/>
+      </div>
+      <div class="program-body">
+        <p class="program-goal" data-el="Στόχος: Ψηφιακή Ένταξη" data-en="Goal: Digital Inclusion">Στόχος: Ψηφιακή Ένταξη</p>
+        <h3 data-el="Ψηφιακές Δεξιότητες" data-en="Digital Skills">Ψηφιακές Δεξιότητες</h3>
+        <p data-el="Ασφαλής χρήση υπολογιστών και διαδικτύου. Επικοινωνία μέσω νέων τεχνολογιών και πρόσβαση στην πληροφορία για ψηφιακή ένταξη σε έναν κόσμο που αλλάζει ταχύτατα." data-en="Safe use of computers and the internet. Communication through new technologies and access to information for digital inclusion in a rapidly changing world.">Ασφαλής χρήση υπολογιστών και διαδικτύου. Επικοινωνία μέσω νέων τεχνολογιών και πρόσβαση στην πληροφορία για ψηφιακή ένταξη σε έναν κόσμο που αλλάζει ταχύτατα.</p>
+      </div>
+    </div>
+
+    <!-- 6. Physical Ed (reversed) -->
+    <div class="program-row reverse alt reveal reveal-delay-1">
+      <div class="program-image">
+        <img src="Photos/Messenger_creation_856337C7-E38D-49EB-AEF3-B527E518A072.jpeg" alt="Φυσική Αγωγή"/>
+      </div>
+      <div class="program-body">
+        <p class="program-goal" data-el="Στόχος: Υγεία &amp; Ευεξία" data-en="Goal: Health &amp; Well-being">Στόχος: Υγεία &amp; Ευεξία</p>
+        <h3 data-el="Φυσική Αγωγή" data-en="Physical Education">Φυσική Αγωγή</h3>
+        <p data-el="Προσαρμοσμένα προγράμματα γυμναστικής για ενδυνάμωση, ισορροπία και ευχαρίστηση μέσα από τη σωματική άσκηση. Η κίνηση ως εργαλείο χαράς και υγείας." data-en="Adapted gymnastics programs for strengthening, balance and enjoyment through physical exercise. Movement as a tool of joy and health.">Προσαρμοσμένα προγράμματα γυμναστικής για ενδυνάμωση, ισορροπία και ευχαρίστηση μέσα από τη σωματική άσκηση. Η κίνηση ως εργαλείο χαράς και υγείας.</p>
+      </div>
+    </div>
+
+    <!-- 7. Gardening -->
+    <div class="program-row reveal">
+      <div class="program-image">
+        <img src="Photos/Lysos-Gallery-19.jpg" alt="Κηπουρική"/>
+      </div>
+      <div class="program-body">
+        <p class="program-goal" data-el="Στόχος: Περιβαλλοντική Συνείδηση" data-en="Goal: Environmental Awareness">Στόχος: Περιβαλλοντική Συνείδηση</p>
+        <h3 data-el="Κηπουρική" data-en="Gardening Action">Κηπουρική</h3>
+        <p data-el="Αξιοποιούμε τον κήπο μας για καλλιέργεια λαχανικών και λουλουδιών. Μαθαίνουμε για τον κύκλο της ζωής και τη φροντίδα της γης — ένα μάθημα ζωής που αγγίζει την ψυχή." data-en="We use our garden to grow vegetables and flowers. We learn about the cycle of life and caring for the earth — a life lesson that touches the soul.">Αξιοποιούμε τον κήπο μας για καλλιέργεια λαχανικών και λουλουδιών. Μαθαίνουμε για τον κύκλο της ζωής και τη φροντίδα της γης — ένα μάθημα ζωής που αγγίζει την ψυχή.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="container text-center">
+    <div class="reveal" style="max-width:600px;margin:0 auto;">
+      <span class="section-tag amber" style="justify-content:center;" data-el="ΕΝΔΙΑΦΕΡΕΣΤΕ;" data-en="INTERESTED?">ΕΝΔΙΑΦΕΡΕΣΤΕ;</span>
+      <h2 data-el="Μάθετε περισσότερα για την εγγραφή σας" data-en="Learn more about enrollment">Μάθετε περισσότερα για την εγγραφή</h2>
+      <p style="color:var(--text-muted);margin-top:1rem;" data-el="Επικοινωνήστε μαζί μας για πληροφορίες σχετικά με τα κριτήρια εγγραφής, τα χρονοδιαγράμματα και τον τρόπο υποβολής αίτησης." data-en="Contact us for information about enrollment criteria, schedules and how to apply.">Επικοινωνήστε μαζί μας για πληροφορίες σχετικά με τα κριτήρια εγγραφής, τα χρονοδιαγράμματα και τον τρόπο υποβολής αίτησης.</p>
+      <a href="contact.html" class="btn btn-amber" style="margin-top:2rem;">
+        <i class="fa-solid fa-envelope"></i>
+        <span data-el="Επικοινωνήστε μαζί μας" data-en="Contact Us">Επικοινωνήστε μαζί μας</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Photos/ambassador.png" alt="Ambassador" class="footer-ambassador"/>
+        
+        <div class="footer-social">
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=100057519816523&locale=el_GR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social-icon" href="https://www.instagram.com/o_kipos_tis_lysous/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social-icon" href="https://www.linkedin.com/company/lysso-s-garden" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social-icon" href="https://www.youtube.com/@ΟΚήποςτηςΛυσούς" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Πλοήγηση" data-en="Navigation">Πλοήγηση</h4>
+        <ul>
+          <li><a href="programs.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Προγράμματα" data-en="Programs">Προγράμματα</span></a></li>
+          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Ποιοι Είμαστε" data-en="About Us">Ποιοι Είμαστε</span></a></li>
+          <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Νέα &amp; Δράσεις" data-en="News &amp; Activities">Νέα &amp; Δράσεις</span></a></li>
+          <li><a href="gallery.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Φωτογραφίες" data-en="Gallery">Φωτογραφίες</span></a></li>
+          <li><a href="support.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Στηρίξτε μας" data-en="Support Us">Στηρίξτε μας</span></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+302721097321">+30 27210 97321</a></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:lyssosg@gmail.com">lyssosg@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i><span data-el="Μεγάλη Μαντίνεια, Μεσσηνία" data-en="Megali Mantineia, Messinia">Μεγάλη Μαντίνεια, Μεσσηνία</span></li>
+          <li><i class="fa-solid fa-clock"></i><span data-el="Δευ–Παρ: 08:00–16:00" data-en="Mon–Fri: 08:00–16:00">Δευ–Παρ: 08:00–16:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-el="© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος." data-en="© 2026 Day Center Megali Mantineia. All rights reserved.">© 2026 ΚΔΗΦ Μεγάλης Μαντίνειας. Με επιφύλαξη παντός δικαιώματος.</span>
+      <span>Made with <i class="fa-solid fa-heart"></i> by Panagiotis Vionis</span>
+    </div>
+  </div>
+</footer>
+
+<button id="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-chevron-up"></i></button>
+<div class="floating-support-wrap">
+  <div class="floating-support-tooltip">
+    <span data-el="Γραμμή Στήριξης" data-en="Support Line">Γραμμή Στήριξης</span>
+    <strong>19831</strong>
+    <div data-el="Κινητά: 2,46€/κλήση" data-en="Mobile: €2.46/call">Κινητά: 2,46€/κλήση</div>
+    <div data-el="Σταθερά: 2,34€/κλήση" data-en="Landline: €2.34/call">Σταθερά: 2,34€/κλήση</div>
+  </div>
+  <a class="floating-support-btn" href="tel:19831" aria-label="Γραμμή Στήριξης 19831">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+<a class="floating-btn" href="contact.html" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a>
+<script src="js/kdif.js"></script>
+</body>
+</html>

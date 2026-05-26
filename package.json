@@ -1,0 +1,14 @@
+{
+  "name": "kipos-website",
+  "version": "1.0.0",
+  "description": "Κήπος της Λυσούς — Day Center Website",
+  "scripts": {
+    "dev": "parcel index.html about.html news.html programs.html support.html contact.html collaborations.html gallery.html services.html article-erasmus-katholic.html article-mnimonio.html article-nipiagogeio.html article-sympan.html --port 3000 --open",
+    "build": "parcel build index.html about.html news.html programs.html support.html contact.html collaborations.html gallery.html services.html article-erasmus-katholic.html article-mnimonio.html article-nipiagogeio.html article-sympan.html --dist-dir dist --public-url /",
+    "deploy": "npm run build && netlify deploy --dir dist --prod"
+  },
+  "devDependencies": {
+    "netlify-cli": "^26.0.2",
+    "parcel": "^2.16.4"
+  }
+}
