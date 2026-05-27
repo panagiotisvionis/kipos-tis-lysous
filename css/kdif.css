@@ -346,6 +346,21 @@ ul { list-style: none; }
 .overlay-nav a:hover::after,
 .overlay-nav a.active::after { width: 36px; }
 
+.overlay-nav a.overlay-crowdfund {
+  background: var(--amber);
+  color: var(--forest-deep) !important;
+  font-size: 0.82rem !important;
+  padding: 0.55rem 1.8rem;
+  border-radius: var(--r-full);
+  margin-top: 0.4rem;
+  transform: none !important;
+}
+.overlay-nav a.overlay-crowdfund:hover {
+  background: var(--amber-light);
+  transform: translateX(4px) !important;
+}
+.overlay-nav a.overlay-crowdfund::after { display: none; }
+
 .nav-overlay-footer {
   padding: 1.8rem 3rem;
   display: flex; justify-content: space-between; align-items: center;
