@@ -651,6 +651,60 @@ ul { list-style: none; }
 }
 @media (max-width: 860px) { .header-crowdfund-link { display: none; } }
 
+/* ══ MANIFESTO CAROUSEL ══ */
+.manifesto-carousel-wrap {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.manifesto-carousel-track {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  width: max-content;
+  animation: manifesto-scroll 18s linear infinite;
+}
+.manifesto-carousel-wrap:hover .manifesto-carousel-track {
+  animation-play-state: paused;
+}
+@keyframes manifesto-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.manifesto-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.4rem;
+  min-width: 220px;
+}
+.manifesto-item i {
+  font-size: 1.6rem;
+  color: var(--amber);
+  margin-bottom: 0.3rem;
+}
+.manifesto-title {
+  font-family: var(--f-head);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.manifesto-sub {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.6);
+  max-width: 200px;
+  line-height: 1.5;
+}
+.manifesto-divider {
+  color: var(--amber);
+  opacity: 0.4;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}
+
 /* ══ CAMPAIGN CARDS ══ */
 .campaign-grid {
   display: grid;
