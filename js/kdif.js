@@ -33,6 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
+        // data-placeholder-el / data-placeholder-en inputs
+        document.querySelectorAll('[data-placeholder-el]').forEach(el => {
+            el.placeholder = (lang === 'el')
+                ? el.getAttribute('data-placeholder-el')
+                : el.getAttribute('data-placeholder-en');
+        });
+
         // Update indicators
         const overlayLangStatus = document.getElementById('overlay-lang-status');
         if (overlayLangStatus) {
@@ -52,6 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     updateLanguage(currentLang);
+
+    // Newsletter email validation — bilingual custom message
+    document.querySelectorAll('.newsletter-form input[type="email"]').forEach(input => {
+        input.addEventListener('invalid', () => {
+            const lang = localStorage.getItem('kdif_lang') || 'el';
+            input.setCustomValidity(
+                lang === 'el' ? 'Παρακαλώ εισάγετε το email σας' : 'Please enter your email address'
+            );
+        });
+        input.addEventListener('input', () => input.setCustomValidity(''));
+    });
 
 
     // ══════════════════════════════════════════════════════════
