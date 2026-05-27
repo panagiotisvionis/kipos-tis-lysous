@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Χτίζουμε Μαζί | Κήπος της Λυσούς</title>
+  <meta name="description" content="Βοήθησε να δημιουργήσουμε συγκεκριμένα projects στον Κήπο της Λυσούς. Μικροί στόχοι, μεγάλη αλλαγή."/>
+  <link rel="icon" href="Logos/Logo_0000_Kipos-min (1).png" type="image/png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+  <link href="css/kdif.css" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- ══ HEADER ══ -->
+<header id="site-header">
+  <div class="header-inner">
+    <a class="header-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" style="width:155px;height:auto;" alt="Κήπος της Λυσούς"/>
+    </a>
+    <div class="header-actions">
+      <a class="header-crowdfund-link" href="crowdfunding.html">CROWDFUNDING</a>
+      <a class="header-support-link" data-i18n="header-support" href="support.html">ΣΤΗΡΙΞΤΕ ΜΑΣ</a>
+      <button class="lang-toggle-btn" id="lang-toggle" aria-label="Language Toggle">EN</button>
+      <button class="menu-open-btn" id="menu-open" aria-label="Open Menu">
+        <span data-i18n="menu-btn">ΜΕΝΟΥ</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ══ NAV OVERLAY ══ -->
+<div class="nav-overlay" id="nav-overlay">
+  <div class="nav-overlay-top">
+    <a class="nav-overlay-logo" href="index.html">
+      <img src="Logos/Logo_0000_Kipos-min (1).png" alt="Κήπος της Λυσούς"/>
+    </a>
+    <button class="nav-overlay-close" id="nav-close" aria-label="Close Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+  </div>
+  <nav class="overlay-nav">
+    <ul>
+      <li><a href="index.html" data-i18n="nav-home">ΑΡΧΙΚΗ</a></li>
+      <li><a href="programs.html" data-i18n="nav-programs">ΤΙ ΚΑΝΟΥΜΕ</a></li>
+      <li><a href="about.html" data-i18n="nav-about">ΠΟΙΟΙ ΕΙΜΑΣΤΕ</a></li>
+      <li><a href="news.html" data-i18n="nav-news">ΤΑ ΝΕΑ ΜΑΣ</a></li>
+      <li><a href="contact.html" data-i18n="nav-contact">ΕΠΙΚΟΙΝΩΝΙΑ</a></li>
+      <li><a href="support.html" data-i18n="nav-support">ΣΤΗΡΙΞΤΕ ΜΑΣ</a></li>
+      <li><a href="crowdfunding.html" class="active">CROWDFUNDING</a></li>
+    </ul>
+  </nav>
+  <div class="nav-overlay-footer">
+    <div class="nav-overlay-lang" id="overlay-lang-status">GR</div>
+    <a class="accessibility-btn" href="#" aria-label="Accessibility"><i class="fa-solid fa-wheelchair"></i></a>
+  </div>
+</div>
+
+<!-- ══ PAGE HERO ══ -->
+<div class="page-hero hero-bg-crowdfunding">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html" data-el="Αρχική" data-en="Home">Αρχική</a>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span data-el="Χτίζουμε Μαζί" data-en="Build Together">Χτίζουμε Μαζί</span>
+    </nav>
+    <h1 data-el="Χτίζουμε κάτι μαζί" data-en="We build something together">Χτίζουμε κάτι μαζί</h1>
+    <p data-el="Κάθε δωρεά είναι ένα συγκεκριμένο βήμα. Εδώ μπορείς να δεις ακριβώς τι δημιουργούμε — και πόσο έχουμε ήδη φτάσει." data-en="Every donation is a concrete step. Here you can see exactly what we are creating — and how far we have already come.">Κάθε δωρεά είναι ένα συγκεκριμένο βήμα. Εδώ μπορείς να δεις ακριβώς τι δημιουργούμε — και πόσο έχουμε ήδη φτάσει.</p>
+  </div>
+</div>
+
+<!-- ══ MANIFESTO STRIP ══ -->
+<section class="impact-strip-section" style="background: var(--forest-deep); padding: 3rem 0;">
+  <div class="container">
+    <div class="impact-strip" style="justify-content: center; gap: 4rem; flex-wrap: wrap;">
+      <div class="impact-item reveal">
+        <i class="fa-solid fa-eye" style="font-size:1.6rem; color:var(--amber); margin-bottom:0.6rem;"></i>
+        <div style="font-family:var(--f-head);font-size:0.68rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--white);" data-el="ΔΙΑΦΑΝΕΙΑ" data-en="TRANSPARENCY">ΔΙΑΦΑΝΕΙΑ</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.6);margin-top:0.3rem;" data-el="Αποδείξεις & αναφορές" data-en="Receipts & reports">Αποδείξεις & αναφορές</div>
+      </div>
+      <div class="impact-item reveal">
+        <i class="fa-solid fa-bullseye" style="font-size:1.6rem; color:var(--amber); margin-bottom:0.6rem;"></i>
+        <div style="font-family:var(--f-head);font-size:0.68rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--white);" data-el="ΣΥΓΚΕΚΡΙΜΕΝΑ" data-en="SPECIFIC">ΣΥΓΚΕΚΡΙΜΕΝΑ</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.6);margin-top:0.3rem;" data-el="Ξέρεις ακριβώς τι αγοράζεται" data-en="You know exactly what is bought">Ξέρεις ακριβώς τι αγοράζεται</div>
+      </div>
+      <div class="impact-item reveal">
+        <i class="fa-solid fa-handshake" style="font-size:1.6rem; color:var(--amber); margin-bottom:0.6rem;"></i>
+        <div style="font-family:var(--f-head);font-size:0.68rem;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--white);" data-el="ΜΑΖΙ" data-en="TOGETHER">ΜΑΖΙ</div>
+        <div style="font-size:0.82rem;color:rgba(255,255,255,0.6);margin-top:0.3rem;" data-el="Εσύ είσαι μέρος της ιστορίας" data-en="You are part of the story">Εσύ είσαι μέρος της ιστορίας</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CAMPAIGNS ══ -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="section-header reveal" style="margin-bottom:4rem;">
+      <span class="section-tag amber" data-el="ΕΝΕΡΓΑ PROJECTS" data-en="ACTIVE PROJECTS">ΕΝΕΡΓΑ PROJECTS</span>
+      <h2 data-el="Διάλεξε τι θέλεις να χτίσεις" data-en="Choose what you want to build">Διάλεξε τι θέλεις να χτίσεις</h2>
+      <p style="color:var(--text-muted);margin-top:0.8rem;" data-el="Κάθε project έχει συγκεκριμένο στόχο, φωτογραφίες και ενημερώσεις. Μετά τη δωρεά σε ενημερώνουμε για κάθε βήμα." data-en="Each project has a specific goal, photos and updates. After your donation we keep you informed of every step.">Κάθε project έχει συγκεκριμένο στόχο, φωτογραφίες και ενημερώσεις. Μετά τη δωρεά σε ενημερώνουμε για κάθε βήμα.</p>
+    </div>
+
+    <div class="campaign-grid">
+
+      <!-- 1. Μουσικό Εργαστήριο -->
+      <div class="campaign-card reveal">
+        <div class="campaign-img-wrap">
+          <img src="Photos/Messenger_creation_72324B03-EFCC-4492-8821-9D0F4E17E4AC.jpeg" alt="Μουσικό Εργαστήριο"/>
+          <span class="campaign-badge" data-el="ΜΟΥΣΙΚΗ" data-en="MUSIC">ΜΟΥΣΙΚΗ</span>
+        </div>
+        <div class="campaign-body">
+          <h3 data-el="Βοήθησε να δημιουργηθεί το μουσικό εργαστήριο" data-en="Help create the music workshop">Βοήθησε να δημιουργηθεί το μουσικό εργαστήριο</h3>
+          <p class="campaign-impact" data-el="Αγορά μουσικών οργάνων, ηχητικού εξοπλισμού και διαμόρφωση χώρου έκφρασης. Cajon, ακορντεόν, κιθάρα, μικρόφωνο — κάθε όργανο ανοίγει έναν νέο κόσμο για τους ωφελούμενούς μας." data-en="Purchase of musical instruments, audio equipment and the setup of an expression space. Cajon, accordion, guitar, microphone — each instrument opens a new world for our beneficiaries.">Αγορά μουσικών οργάνων, ηχητικού εξοπλισμού και διαμόρφωση χώρου έκφρασης. Cajon, ακορντεόν, κιθάρα, μικρόφωνο — κάθε όργανο ανοίγει έναν νέο κόσμο για τους ωφελούμενούς μας.</p>
+          <div class="campaign-progress-track">
+            <div class="campaign-progress-fill" style="width:0%"></div>
+          </div>
+          <div class="campaign-stats">
+            <span class="raised">0 €</span>
+            <span class="goal" data-el="στόχος 3.500 €" data-en="goal 3,500 €">στόχος 3.500 €</span>
+          </div>
+          <div class="campaign-supporters">
+            <i class="fa-solid fa-heart"></i>
+            <span data-el="0 υποστηρικτές" data-en="0 supporters">0 υποστηρικτές</span>
+          </div>
+          <!-- UPDATE: replace lyssosg@gmail.com with your PayPal business email -->
+          <a class="btn btn-amber" href="https://www.paypal.com/donate/?business=lyssosg%40gmail.com&currency_code=EUR&item_name=Μουσικό+Εργαστήριο+Κήπος+Λυσούς" target="_blank" rel="noopener">
+            <span data-el="ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ" data-en="DONATE FOR THIS">ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. Sensory Room -->
+      <div class="campaign-card reveal reveal-delay-1">
+        <div class="campaign-img-wrap">
+          <img src="Photos/Messenger_creation_8723C8AF-989B-4A86-8388-E2DD7BF42E90.jpeg" alt="Sensory Room"/>
+          <span class="campaign-badge" style="background:var(--forest-med);" data-el="ΑΙΣΘΗΤΗΡΙΑΚΗ" data-en="SENSORY">ΑΙΣΘΗΤΗΡΙΑΚΗ</span>
+        </div>
+        <div class="campaign-body">
+          <h3 data-el="Βοήθησε να δημιουργηθεί sensory room" data-en="Help create a sensory room">Βοήθησε να δημιουργηθεί sensory room</h3>
+          <p class="campaign-impact" data-el="Ένας χώρος ηρεμίας και αισθητηριακής ολοκλήρωσης με ειδικό φωτισμό, υφές και ήχους. Για όσους χρειάζονται ένα ασφαλές καταφύγιο μέσα στη μέρα τους." data-en="A space of calm and sensory integration with special lighting, textures and sounds. For those who need a safe refuge within their day.">Ένας χώρος ηρεμίας και αισθητηριακής ολοκλήρωσης με ειδικό φωτισμό, υφές και ήχους. Για όσους χρειάζονται ένα ασφαλές καταφύγιο μέσα στη μέρα τους.</p>
+          <div class="campaign-progress-track">
+            <div class="campaign-progress-fill" style="width:0%"></div>
+          </div>
+          <div class="campaign-stats">
+            <span class="raised">0 €</span>
+            <span class="goal" data-el="στόχος 5.000 €" data-en="goal 5,000 €">στόχος 5.000 €</span>
+          </div>
+          <div class="campaign-supporters">
+            <i class="fa-solid fa-heart"></i>
+            <span data-el="0 υποστηρικτές" data-en="0 supporters">0 υποστηρικτές</span>
+          </div>
+          <a class="btn btn-amber" href="https://www.paypal.com/donate/?business=lyssosg%40gmail.com&currency_code=EUR&item_name=Sensory+Room+Κήπος+Λυσούς" target="_blank" rel="noopener">
+            <span data-el="ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ" data-en="DONATE FOR THIS">ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3. Summer Inclusion Camp -->
+      <div class="campaign-card reveal reveal-delay-2">
+        <div class="campaign-img-wrap">
+          <img src="Photos/20251004_132047.jpg" alt="Summer Inclusion Camp"/>
+          <span class="campaign-badge" style="background:var(--eu-blue);" data-el="ΚΑΛΟΚΑΙΡΙ" data-en="SUMMER">ΚΑΛΟΚΑΙΡΙ</span>
+        </div>
+        <div class="campaign-body">
+          <h3 data-el="Στήριξε το καλοκαιρινό camp συμπερίληψης" data-en="Support the summer inclusion camp">Στήριξε το καλοκαιρινό camp συμπερίληψης</h3>
+          <p class="campaign-impact" data-el="Τρεις εβδομάδες δημιουργικής δράσης το καλοκαίρι για ωφελούμενους και παιδιά της τοπικής κοινότητας μαζί — χωρίς διαχωρισμό, χωρίς αποκλεισμό." data-en="Three weeks of creative activity in summer for beneficiaries and children of the local community together — without division, without exclusion.">Τρεις εβδομάδες δημιουργικής δράσης το καλοκαίρι για ωφελούμενους και παιδιά της τοπικής κοινότητας μαζί — χωρίς διαχωρισμό, χωρίς αποκλεισμό.</p>
+          <div class="campaign-progress-track">
+            <div class="campaign-progress-fill" style="width:0%"></div>
+          </div>
+          <div class="campaign-stats">
+            <span class="raised">0 €</span>
+            <span class="goal" data-el="στόχος 2.500 €" data-en="goal 2,500 €">στόχος 2.500 €</span>
+          </div>
+          <div class="campaign-supporters">
+            <i class="fa-solid fa-heart"></i>
+            <span data-el="0 υποστηρικτές" data-en="0 supporters">0 υποστηρικτές</span>
+          </div>
+          <a class="btn btn-amber" href="https://www.paypal.com/donate/?business=lyssosg%40gmail.com&currency_code=EUR&item_name=Summer+Inclusion+Camp+Κήπος+Λυσούς" target="_blank" rel="noopener">
+            <span data-el="ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ" data-en="DONATE FOR THIS">ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4. Μεταφορά -->
+      <div class="campaign-card reveal">
+        <div class="campaign-img-wrap">
+          <img src="Photos/20251119_100531.jpg" alt="Μεταφορά ωφελουμένων"/>
+          <span class="campaign-badge" style="background:var(--forest-deep);" data-el="ΜΕΤΑΦΟΡΑ" data-en="TRANSPORT">ΜΕΤΑΦΟΡΑ</span>
+        </div>
+        <div class="campaign-body">
+          <h3 data-el="Να φτάνουν όλοι — κάλυψε κόστη μεταφοράς" data-en="Everyone arrives — cover transport costs">Να φτάνουν όλοι — κάλυψε κόστη μεταφοράς</h3>
+          <p class="campaign-impact" data-el="Το κόστος μεταφοράς είναι συχνά αυτό που εμποδίζει κάποιον να συμμετέχει. Κάθε κιλόμετρο που χρηματοδοτείται σημαίνει μια παρουσία παραπάνω στον Κήπο." data-en="Transport cost is often what prevents someone from participating. Every kilometre funded means one more presence at the Garden.">Το κόστος μεταφοράς είναι συχνά αυτό που εμποδίζει κάποιον να συμμετέχει. Κάθε κιλόμετρο που χρηματοδοτείται σημαίνει μια παρουσία παραπάνω στον Κήπο.</p>
+          <div class="campaign-progress-track">
+            <div class="campaign-progress-fill" style="width:0%"></div>
+          </div>
+          <div class="campaign-stats">
+            <span class="raised">0 €</span>
+            <span class="goal" data-el="στόχος 1.200 €" data-en="goal 1,200 €">στόχος 1.200 €</span>
+          </div>
+          <div class="campaign-supporters">
+            <i class="fa-solid fa-heart"></i>
+            <span data-el="0 υποστηρικτές" data-en="0 supporters">0 υποστηρικτές</span>
+          </div>
+          <a class="btn btn-amber" href="https://www.paypal.com/donate/?business=lyssosg%40gmail.com&currency_code=EUR&item_name=Μεταφορά+Ωφελουμένων+Κήπος+Λυσούς" target="_blank" rel="noopener">
+            <span data-el="ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ" data-en="DONATE FOR THIS">ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5. Sponsor a Beneficiary -->
+      <div class="campaign-card reveal reveal-delay-1">
+        <div class="campaign-img-wrap">
+          <img src="Photos/20251119_100549.jpg" alt="Υιοθέτησε ωφελούμενο"/>
+          <span class="campaign-badge" style="background:var(--amber);" data-el="ΩΦΕΛΟΥΜΕΝΟΣ" data-en="BENEFICIARY">ΩΦΕΛΟΥΜΕΝΟΣ</span>
+        </div>
+        <div class="campaign-body">
+          <h3 data-el="Στήριξε 1 μήνα δημιουργικής απασχόλησης" data-en="Support 1 month of creative occupation">Στήριξε 1 μήνα δημιουργικής απασχόλησης</h3>
+          <p class="campaign-impact" data-el="Κάλυψε τη μηνιαία συνδρομή ενός ωφελούμενου για συμμετοχή στα προγράμματά μας. Θεραπεία, δημιουργία, κοινωνική ζωή — ένας μήνας γεμάτος." data-en="Cover one beneficiary's monthly fee for participation in our programmes. Therapy, creativity, social life — a full month.">Κάλυψε τη μηνιαία συνδρομή ενός ωφελούμενου για συμμετοχή στα προγράμματά μας. Θεραπεία, δημιουργία, κοινωνική ζωή — ένας μήνας γεμάτος.</p>
+          <div class="campaign-progress-track">
+            <div class="campaign-progress-fill" style="width:0%"></div>
+          </div>
+          <div class="campaign-stats">
+            <span class="raised">0 €</span>
+            <span class="goal" data-el="στόχος 1.000 €" data-en="goal 1,000 €">στόχος 1.000 €</span>
+          </div>
+          <div class="campaign-supporters">
+            <i class="fa-solid fa-heart"></i>
+            <span data-el="0 υποστηρικτές" data-en="0 supporters">0 υποστηρικτές</span>
+          </div>
+          <a class="btn btn-amber" href="https://www.paypal.com/donate/?business=lyssosg%40gmail.com&currency_code=EUR&item_name=Sponsor+Beneficiary+Κήπος+Λυσούς" target="_blank" rel="noopener">
+            <span data-el="ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ" data-en="DONATE FOR THIS">ΔΩΡΙΣΕ ΓΙ' ΑΥΤΟ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ MONTHLY — Γίνε Φίλος του Κήπου ══ -->
+<section class="section" style="background: var(--sage-light, #f0f4ee);">
+  <div class="container">
+    <div class="section-header centered reveal" style="max-width:640px;margin:0 auto 4rem;">
+      <span class="section-tag amber" data-el="ΜΗΝΙΑΙΑ ΣΤΗΡΙΞΗ" data-en="MONTHLY SUPPORT">ΜΗΝΙΑΙΑ ΣΤΗΡΙΞΗ</span>
+      <h2 data-el="Γίνε φίλος του Κήπου" data-en="Become a Friend of the Garden">Γίνε φίλος του Κήπου</h2>
+      <p style="color:var(--text-muted);margin-top:0.8rem;" data-el="Μια μικρή μηνιαία συνεισφορά κρατάει τον Κήπο ζωντανό κάθε μέρα — και σε κάνει μέρος μιας κοινότητας ανθρώπων που πιστεύουν στο ίδιο πράγμα." data-en="A small monthly contribution keeps the Garden alive every day — and makes you part of a community of people who believe in the same thing.">Μια μικρή μηνιαία συνεισφορά κρατάει τον Κήπο ζωντανό κάθε μέρα — και σε κάνει μέρος μιας κοινότητας ανθρώπων που πιστεύουν στο ίδιο πράγμα.</p>
+    </div>
+
+    <div class="monthly-tiers">
+
+      <!-- 5€ -->
+      <div class="monthly-tier reveal">
+        <div class="monthly-tier-icon"><i class="fa-solid fa-seedling"></i></div>
+        <div class="monthly-tier-price">5€</div>
+        <div class="monthly-tier-period" data-el="ανά μήνα" data-en="per month">ανά μήνα</div>
+        <div class="monthly-tier-name" data-el="Φίλος του Κήπου" data-en="Friend of the Garden">Φίλος του Κήπου</div>
+        <p class="monthly-tier-desc" data-el="Ενισχύεις την καθημερινή λειτουργία — υλικά, εξοπλισμό, μικρές ανάγκες που κάνουν τη διαφορά." data-en="You support daily operations — materials, equipment, small needs that make a difference.">Ενισχύεις την καθημερινή λειτουργία — υλικά, εξοπλισμό, μικρές ανάγκες που κάνουν τη διαφορά.</p>
+        <a class="btn btn-outline" href="https://www.paypal.com/donate/?business=lyssosg%40gmail.com&currency_code=EUR&item_name=Φίλος+Κήπου+5€/μήνα" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+          <span data-el="ΕΓΓΡΑΦΗ" data-en="SUBSCRIBE">ΕΓΓΡΑΦΗ</span>
+        </a>
+      </div>
+
+      <!-- 10€ -->
+      <div class="monthly-tier featured reveal reveal-delay-1">
+        <div class="monthly-tier-icon" style="background:var(--amber);color:white;"><i class="fa-solid fa-tree"></i></div>
+        <div class="monthly-tier-price">10€</div>
+        <div class="monthly-tier-period" data-el="ανά μήνα" data-en="per month">ανά μήνα</div>
+        <div class="monthly-tier-name" data-el="Υποστηρικτής" data-en="Supporter">Υποστηρικτής</div>
+        <p class="monthly-tier-desc" data-el="Συμμετέχεις στην κάλυψη εκπαιδευτικών υλικών και βιωματικών εργαστηρίων κάθε μήνα." data-en="You contribute to covering educational materials and experiential workshops each month.">Συμμετέχεις στην κάλυψη εκπαιδευτικών υλικών και βιωματικών εργαστηρίων κάθε μήνα.</p>
+        <a class="btn btn-amber" href="https://www.paypal.com/donate/?business=lyssosg%40gmail.com&currency_code=EUR&item_name=Υποστηρικτής+10€/μήνα" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+          <span data-el="ΕΓΓΡΑΦΗ" data-en="SUBSCRIBE">ΕΓΓΡΑΦΗ</span>
+        </a>
+      </div>
+
+      <!-- 20€ -->
+      <div class="monthly-tier reveal reveal-delay-2">
+        <div class="monthly-tier-icon"><i class="fa-solid fa-star"></i></div>
+        <div class="monthly-tier-price">20€</div>
+        <div class="monthly-tier-period" data-el="ανά μήνα" data-en="per month">ανά μήνα</div>
+        <div class="monthly-tier-name" data-el="Θεματοφύλακας" data-en="Guardian">Θεματοφύλακας</div>
+        <p class="monthly-tier-desc" data-el="Ένας ωφελούμενος ονομάζει εσένα σύμμαχό του. Λαμβάνεις ενημερώσεις, φωτογραφίες και ευχαριστήριο γράμμα κάθε εξάμηνο." data-en="A beneficiary names you their ally. You receive updates, photos and a thank-you letter every six months.">Ένας ωφελούμενος ονομάζει εσένα σύμμαχό του. Λαμβάνεις ενημερώσεις, φωτογραφίες και ευχαριστήριο γράμμα κάθε εξάμηνο.</p>
+        <a class="btn btn-outline" href="https://www.paypal.com/donate/?business=lyssosg%40gmail.com&currency_code=EUR&item_name=Θεματοφύλακας+20€/μήνα" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+          <span data-el="ΕΓΓΡΑΦΗ" data-en="SUBSCRIBE">ΕΓΓΡΑΦΗ</span>
+        </a>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;color:var(--text-muted);font-size:0.82rem;margin-top:2rem;font-family:var(--f-head);font-weight:600;" data-el="Μετά την πληρωμή μπορείς να ρυθμίσεις την επανάληψη μέσα από το PayPal λογαριασμό σου." data-en="After payment you can set up recurring billing through your PayPal account.">Μετά την πληρωμή μπορείς να ρυθμίσεις την επανάληψη μέσα από το PayPal λογαριασμό σου.</p>
+  </div>
+</section>
+
+<!-- ══ TRANSPARENCY ══ -->
+<section class="section bg-cream">
+  <div class="container">
+    <div class="editorial-split reveal" style="align-items:center;">
+      <div class="editorial-content">
+        <span class="section-tag amber" data-el="ΛΟΓΟΔΟΣΙΑ" data-en="ACCOUNTABILITY">ΛΟΓΟΔΟΣΙΑ</span>
+        <h2 data-el="Κάθε ευρώ λογοδοτεί" data-en="Every euro is accounted for">Κάθε ευρώ λογοδοτεί</h2>
+        <p data-el="Δεν ζητάμε εμπιστοσύνη εν κενώ. Για κάθε project που ολοκληρώνεται, δημοσιεύουμε φωτογραφίες before/after, αποδείξεις αγοράς και σύντομη αναφορά αποτελεσμάτων." data-en="We do not ask for trust in a vacuum. For every completed project, we publish before/after photos, purchase receipts and a brief outcome report.">Δεν ζητάμε εμπιστοσύνη εν κενώ. Για κάθε project που ολοκληρώνεται, δημοσιεύουμε φωτογραφίες before/after, αποδείξεις αγοράς και σύντομη αναφορά αποτελεσμάτων.</p>
+        <div style="display:flex;flex-direction:column;gap:1rem;margin-top:2rem;">
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div style="width:40px;height:40px;border-radius:50%;background:var(--amber);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-camera" style="color:white;font-size:0.9rem;"></i></div>
+            <span style="color:var(--text-muted);font-size:0.9rem;" data-el="Φωτογραφίες πριν και μετά για κάθε project" data-en="Before and after photos for every project">Φωτογραφίες πριν και μετά για κάθε project</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div style="width:40px;height:40px;border-radius:50%;background:var(--forest-med);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-file-invoice" style="color:white;font-size:0.9rem;"></i></div>
+            <span style="color:var(--text-muted);font-size:0.9rem;" data-el="Αποδείξεις και τιμολόγια αγορών" data-en="Receipts and purchase invoices">Αποδείξεις και τιμολόγια αγορών</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div style="width:40px;height:40px;border-radius:50%;background:var(--forest-deep);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><i class="fa-solid fa-envelope-open-text" style="color:white;font-size:0.9rem;"></i></div>
+            <span style="color:var(--text-muted);font-size:0.9rem;" data-el="Ενημερώσεις σε όλους τους δωρητές" data-en="Updates to all donors">Ενημερώσεις σε όλους τους δωρητές</span>
+          </div>
+        </div>
+      </div>
+      <div class="editorial-image reveal">
+        <img src="Photos/20251121_104727.jpg" alt="Διαφάνεια" style="border-radius:var(--r-xl);"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ CTA ══ -->
+<section class="cta-section">
+  <div class="container text-center">
+    <div class="reveal" style="max-width:600px;margin:0 auto;">
+      <span class="section-tag amber" style="justify-content:center;" data-el="ΓΕΝΙΚΗ ΔΩΡΕΑ" data-en="GENERAL DONATION">ΓΕΝΙΚΗ ΔΩΡΕΑ</span>
+      <h2 data-el="Δεν ξέρεις τι να διαλέξεις;" data-en="Not sure which to choose?">Δεν ξέρεις τι να διαλέξεις;</h2>
+      <p style="color:rgba(255,255,255,0.75);margin:1rem 0 2rem;" data-el="Κάνε μια γενική δωρεά και εμείς την κατανέμουμε εκεί που χρειάζεται περισσότερο εκείνη τη στιγμή." data-en="Make a general donation and we allocate it where it is most needed at that moment.">Κάνε μια γενική δωρεά και εμείς την κατανέμουμε εκεί που χρειάζεται περισσότερο εκείνη τη στιγμή.</p>
+      <a class="btn btn-amber" href="https://www.paypal.com/donate/?business=lyssosg%40gmail.com&currency_code=EUR&item_name=Γενική+Δωρεά+Κήπος+Λυσούς" target="_blank" rel="noopener" style="margin:0 auto;">
+        <i class="fa-brands fa-paypal"></i>
+        <span data-el="ΔΩΡΙΣΕ ΜΕΣΩ PAYPAL" data-en="DONATE VIA PAYPAL">ΔΩΡΙΣΕ ΜΕΣΩ PAYPAL</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer id="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="Photos/ambassador.png" alt="Ambassador" class="footer-ambassador"/>
+        <div class="footer-social">
+          <a class="social-icon" href="https://www.facebook.com/profile.php?id=100057519816523&locale=el_GR" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a class="social-icon" href="https://www.instagram.com/o_kipos_tis_lysous/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a class="social-icon" href="https://www.linkedin.com/company/lysso-s-garden" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a class="social-icon" href="https://www.youtube.com/@ΟΚήποςτηςΛυσούς" target="_blank" rel="noopener" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Πλοήγηση" data-en="Navigation">Πλοήγηση</h4>
+        <ul>
+          <li><a href="programs.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Προγράμματα" data-en="Programs">Προγράμματα</span></a></li>
+          <li><a href="about.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Ποιοι Είμαστε" data-en="About Us">Ποιοι Είμαστε</span></a></li>
+          <li><a href="news.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Νέα &amp; Δράσεις" data-en="News &amp; Activities">Νέα &amp; Δράσεις</span></a></li>
+          <li><a href="support.html"><i class="fa-solid fa-chevron-right"></i> <span data-el="Στηρίξτε μας" data-en="Support Us">Στηρίξτε μας</span></a></li>
+          <li><a href="crowdfunding.html"><i class="fa-solid fa-chevron-right"></i> Crowdfunding</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-el="Επικοινωνία" data-en="Contact">Επικοινωνία</h4>
+        <ul>
+          <li><i class="fa-solid fa-phone"></i><a href="tel:+302721097321">+30 27210 97321</a></li>
+          <li><i class="fa-solid fa-envelope"></i><a href="mailto:lyssosg@gmail.com">lyssosg@gmail.com</a></li>
+          <li><i class="fa-solid fa-location-dot"></i><span data-el="Μεγάλη Μαντίνεια, Μεσσηνία" data-en="Megali Mantineia, Messinia">Μεγάλη Μαντίνεια, Μεσσηνία</span></li>
+          <li><i class="fa-solid fa-clock"></i><span data-el="Δευ–Παρ: 08:00–16:00" data-en="Mon–Fri: 08:00–16:00">Δευ–Παρ: 08:00–16:00</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-el="© 2025 ΑΜΚΕ Κήπος της Λυσούς. Όλα τα δικαιώματα διατηρούνται." data-en="© 2025 NPO LYSOs Garden. All rights reserved.">© 2025 ΑΜΚΕ Κήπος της Λυσούς. Όλα τα δικαιώματα διατηρούνται.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating buttons -->
+<button id="back-to-top" aria-label="Back to Top"><i class="fa-solid fa-chevron-up"></i></button>
+<div class="floating-support-wrap">
+  <div class="floating-support-tooltip" data-el="Γραμμή Στήριξης 19831" data-en="Support Line 19831">Γραμμή Στήριξης 19831</div>
+  <a class="floating-support-btn" href="tel:19831" aria-label="Γραμμή Στήριξης 19831">
+    <i class="fa-solid fa-phone"></i>
+  </a>
+</div>
+<a class="floating-btn" href="contact.html" aria-label="Contact us"><i class="fa-solid fa-envelope"></i></a>
+
+<script src="js/kdif.js"></script>
+</body>
+</html>

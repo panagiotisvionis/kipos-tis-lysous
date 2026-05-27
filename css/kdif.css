@@ -612,7 +612,207 @@ ul { list-style: none; }
 .hero-bg-support::before  { background-image: url('../Photos/aneta.jpg'); }
 .hero-bg-services::before { background-image: url('../Photos/20251004_132330.jpg'); }
 .hero-bg-gallery::before  { background-image: url('../Photos/20251126_114948.jpg'); }
-.hero-bg-collab::before   { background-image: url('../Photos/20251119_100531.jpg'); }
+.hero-bg-collab::before      { background-image: url('../Photos/20251119_100531.jpg'); }
+.hero-bg-crowdfunding::before { background-image: url('../Photos/20251121_120027.jpg'); }
+
+/* ══ HEADER CROWDFUND BUTTON ══ */
+.header-crowdfund-link {
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: 0.68rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--forest-deep);
+  background: var(--amber);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--r-full);
+  text-decoration: none;
+  transition: background var(--t), transform var(--t);
+  white-space: nowrap;
+}
+.header-crowdfund-link:hover {
+  background: var(--amber-light);
+  transform: translateY(-1px);
+}
+@media (max-width: 860px) { .header-crowdfund-link { display: none; } }
+
+/* ══ CAMPAIGN CARDS ══ */
+.campaign-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+.campaign-card {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  box-shadow: var(--s-sm);
+  transition: var(--t-slow);
+  display: flex;
+  flex-direction: column;
+}
+.campaign-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--s-lg);
+}
+.campaign-img-wrap {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+}
+.campaign-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s var(--ease-out);
+}
+.campaign-card:hover .campaign-img-wrap img { transform: scale(1.06); }
+.campaign-badge {
+  position: absolute;
+  top: 1rem; left: 1rem;
+  background: var(--amber);
+  color: white;
+  font-family: var(--f-head);
+  font-weight: 800;
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+  padding: 0.35rem 1rem;
+  border-radius: var(--r-full);
+}
+.campaign-body {
+  padding: 2rem 2.2rem 2.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.campaign-body h3 {
+  font-family: var(--f-display);
+  font-size: 1.2rem;
+  color: var(--forest-deep);
+  margin-bottom: 0.7rem;
+  line-height: 1.35;
+}
+.campaign-impact {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+.campaign-progress-track {
+  height: 7px;
+  background: var(--cream-dark);
+  border-radius: var(--r-full);
+  overflow: hidden;
+  margin-bottom: 0.55rem;
+}
+.campaign-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--forest-med), var(--amber));
+  border-radius: var(--r-full);
+  min-width: 2px;
+  transition: width 1.4s var(--ease-out);
+}
+.campaign-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.7rem;
+}
+.campaign-stats .raised {
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--forest-med);
+}
+.campaign-stats .goal {
+  font-family: var(--f-head);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+.campaign-supporters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--f-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 1.6rem;
+}
+.campaign-supporters i { color: var(--amber); font-size: 0.7rem; }
+
+/* ══ MONTHLY TIERS ══ */
+.monthly-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+.monthly-tier {
+  background: var(--white);
+  border-radius: var(--r-xl);
+  padding: 2.8rem 2rem;
+  text-align: center;
+  box-shadow: var(--s-sm);
+  transition: var(--t-slow);
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.monthly-tier:hover {
+  border-color: var(--amber);
+  transform: translateY(-6px);
+  box-shadow: var(--s-lg);
+}
+.monthly-tier.featured {
+  border-color: var(--amber);
+  box-shadow: var(--s-md);
+}
+.monthly-tier-icon {
+  width: 54px; height: 54px;
+  border-radius: 50%;
+  background: var(--cream);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.4rem;
+  font-size: 1.3rem;
+  color: var(--forest-med);
+}
+.monthly-tier-price {
+  font-family: var(--f-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--amber);
+  line-height: 1;
+}
+.monthly-tier-period {
+  font-family: var(--f-head);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0.4rem 0 0.9rem;
+}
+.monthly-tier-name {
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--forest-deep);
+  margin-bottom: 0.8rem;
+}
+.monthly-tier-desc {
+  font-size: 0.84rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 1.8rem;
+}
+@media (max-width: 768px) {
+  .monthly-tiers { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; }
+  .campaign-grid { grid-template-columns: 1fr; }
+}
 
 .page-hero h1 {
   font-family: var(--f-display);
