@@ -811,6 +811,56 @@ ul { list-style: none; }
   margin-bottom: 1.6rem;
 }
 .campaign-supporters i { color: var(--amber); font-size: 0.7rem; }
+.campaign-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--f-head);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.7rem;
+}
+.campaign-code code {
+  background: var(--forest-deep);
+  color: var(--amber);
+  padding: 0.18rem 0.55rem;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.campaign-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-bottom: 0.6rem;
+}
+.campaign-group-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.22rem;
+}
+.campaign-group-header {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--f-head);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+.footer-credit {
+  font-family: var(--f-head);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.28);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+.footer-credit i { color: var(--amber); font-size: 0.75rem; }
+
 .campaign-subtitle {
   font-family: var(--f-head);
   font-size: 0.7rem;
