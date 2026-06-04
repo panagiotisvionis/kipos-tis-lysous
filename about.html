@@ -163,6 +163,19 @@
       <h2 data-el="Οι άνθρωποι πίσω από τον Κήπο" data-en="The people behind the Garden">Οι άνθρωποι πίσω από τον Κήπο</h2>
       <p style="color:var(--text-muted);margin-top:0.8rem;" data-el="Μια ομάδα αφοσιωμένων επαγγελματιών που κάθε μέρα αφιερώνει τον εαυτό της στους ανθρώπους μας." data-en="A team of dedicated professionals who every day devote themselves to our people.">Μια ομάδα αφοσιωμένων επαγγελματιών που κάθε μέρα αφιερώνει τον εαυτό της στους ανθρώπους μας.</p>
     </div>
+    <!-- Photo registry — Parcel processes these src paths -->
+    <div id="team-photo-registry" style="display:none" aria-hidden="true">
+      <img data-key="traudl"     src="Photos/traudl.png"             alt="">
+      <img data-key="eva"        src="Photos/Eva.png"                alt="">
+      <img data-key="george"     src="Photos/george.png"             alt="">
+      <img data-key="sandy"      src="Photos/sandy.png"              alt="">
+      <img data-key="panagiotis" src="Photos/panagiotis.vionis.jpeg" alt="">
+      <img data-key="maria"      src="Photos/maria.png"              alt="">
+      <img data-key="gorgina"    src="Photos/gorgina.png"            alt="">
+      <img data-key="lakis"      src="Photos/lakis.png"              alt="">
+      <img data-key="kosteas"    src="Photos/kosteas.png"            alt="">
+      <img data-key="vasilis"    src="Photos/vasilis.png"            alt="">
+    </div>
     <div class="team-carousel-wrap reveal">
       <div class="team-carousel-track" id="team-track-top"></div>
     </div>
@@ -171,17 +184,20 @@
     </div>
     <script>
     (function(){
+      var reg=document.getElementById('team-photo-registry');
+      var p={};
+      if(reg) Array.prototype.forEach.call(reg.querySelectorAll('img'),function(img){p[img.getAttribute('data-key')]=img.src;});
       var members = [
-        { name:'Waltraud Sperlich',        photo:'Photos/traudl.png',              roleEl:'Υπεύθυνη Χρηματοδότησης', roleEn:'Financing Officer' },
-        { name:'Eva Lang',                  photo:'Photos/Eva.png',                 roleEl:'Υπεύθυνη Χρηματοδότησης', roleEn:'Financing Officer' },
-        { name:'Γιώργος Μαρκόπουλος',      photo:'Photos/george.png',              roleEl:'Γεωπόνος, MSc — Συντονιστής &amp; Υπεύθυνος Οργάνωσης', roleEn:'Agronomist, MSc — Program Coordinator &amp; Operations Manager' },
-        { name:'Σάντυ Χρηστίδου',          photo:'Photos/sandy.png',              roleEl:'Επιστημονικά Υπεύθυνη | Κοινωνική Λειτουργός | MSc Αναπτυξιακής Ψυχολογίας', roleEn:'Scientific Supervisor | Social Worker | MSc Developmental Psychology' },
-        { name:'Παναγιώτης Βιώνης',        photo:'Photos/panagiotis.vionis.jpeg',  roleEl:'Υπεύθυνος R&amp;D | Διδάκτορας Πανεπιστημίου Πελοποννήσου', roleEn:'R&amp;D Coordinator | PhD University of Peloponnese' },
-        { name:'Μαρία Καραχισαρίδου',      photo:'Photos/maria.png',               roleEl:'Γυμνάστρια εξειδικευμένη στην Ειδική Αγωγή', roleEn:'Physical Education Teacher — Special Education' },
-        { name:'Γεωργία Μαλώτση',          photo:'Photos/gorgina.png',             roleEl:'Εργοθεραπεύτρια με εξειδίκευση στην Ειδική Αγωγή', roleEn:'Occupational Therapist — Special Education' },
-        { name:'Αποστόλης Πολυχρονόπουλος',photo:'Photos/lakis.png',              roleEl:'Εργατοτεχνίτης — Συντήρηση Υποδομών &amp; Εγκαταστάσεων', roleEn:'Infrastructure &amp; Facilities Maintenance Technician' },
-        { name:'Κωστέας Γιώργος',          photo:'Photos/kosteas.png',             roleEl:'Οδηγός', roleEn:'Driver' },
-        { name:'Καργάκος Βασίλης',         photo:'Photos/vasilis.png',             roleEl:'Οδηγός', roleEn:'Driver' }
+        { name:'Waltraud Sperlich',         photo:p.traudl,     roleEl:'Υπεύθυνη Χρηματοδότησης', roleEn:'Financing Officer' },
+        { name:'Eva Lang',                  photo:p.eva,        roleEl:'Υπεύθυνη Χρηματοδότησης', roleEn:'Financing Officer' },
+        { name:'Γιώργος Μαρκόπουλος',      photo:p.george,     roleEl:'Γεωπόνος, MSc — Συντονιστής &amp; Υπεύθυνος Οργάνωσης', roleEn:'Agronomist, MSc — Program Coordinator &amp; Operations Manager' },
+        { name:'Σάντυ Χρηστίδου',          photo:p.sandy,      roleEl:'Επιστημονικά Υπεύθυνη | Κοινωνική Λειτουργός | MSc Αναπτυξιακής Ψυχολογίας', roleEn:'Scientific Supervisor | Social Worker | MSc Developmental Psychology' },
+        { name:'Παναγιώτης Βιώνης',        photo:p.panagiotis, roleEl:'Υπεύθυνος R&amp;D | Διδάκτορας Πανεπιστημίου Πελοποννήσου', roleEn:'R&amp;D Coordinator | PhD University of Peloponnese' },
+        { name:'Μαρία Καραχισαρίδου',      photo:p.maria,      roleEl:'Γυμνάστρια εξειδικευμένη στην Ειδική Αγωγή', roleEn:'Physical Education Teacher — Special Education' },
+        { name:'Γεωργία Μαλώτση',          photo:p.gorgina,    roleEl:'Εργοθεραπεύτρια με εξειδίκευση στην Ειδική Αγωγή', roleEn:'Occupational Therapist — Special Education' },
+        { name:'Αποστόλης Πολυχρονόπουλος',photo:p.lakis,      roleEl:'Εργατοτεχνίτης — Συντήρηση Υποδομών &amp; Εγκαταστάσεων', roleEn:'Infrastructure &amp; Facilities Maintenance Technician' },
+        { name:'Κωστέας Γιώργος',          photo:p.kosteas,    roleEl:'Οδηγός', roleEn:'Driver' },
+        { name:'Καργάκος Βασίλης',         photo:p.vasilis,    roleEl:'Οδηγός', roleEn:'Driver' }
       ];
       function shuffle(a){
         for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
