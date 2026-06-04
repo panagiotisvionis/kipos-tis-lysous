@@ -164,7 +164,45 @@
       <p style="color:var(--text-muted);margin-top:0.8rem;" data-el="Μια ομάδα αφοσιωμένων επαγγελματιών που κάθε μέρα αφιερώνει τον εαυτό της στους ανθρώπους μας." data-en="A team of dedicated professionals who every day devote themselves to our people.">Μια ομάδα αφοσιωμένων επαγγελματιών που κάθε μέρα αφιερώνει τον εαυτό της στους ανθρώπους μας.</p>
     </div>
     <div class="team-carousel-wrap reveal">
-      <div class="team-carousel-track">
+      <div class="team-carousel-track" id="team-track-top"></div>
+    </div>
+    <div class="team-carousel-wrap reveal" style="margin-top:1.5rem;">
+      <div class="team-carousel-track team-carousel-reverse" id="team-track-bottom"></div>
+    </div>
+    <script>
+    (function(){
+      var members = [
+        { name:'Waltraud Sperlich',        photo:'Photos/traudl.png',              roleEl:'Υπεύθυνη Χρηματοδότησης', roleEn:'Financing Officer' },
+        { name:'Eva Lang',                  photo:'Photos/Eva.png',                 roleEl:'Υπεύθυνη Χρηματοδότησης', roleEn:'Financing Officer' },
+        { name:'Γιώργος Μαρκόπουλος',      photo:'Photos/george.png',              roleEl:'Γεωπόνος, MSc — Συντονιστής &amp; Υπεύθυνος Οργάνωσης', roleEn:'Agronomist, MSc — Program Coordinator &amp; Operations Manager' },
+        { name:'Σάντυ Χρηστίδου',          photo:'Photos/sandy.png',              roleEl:'Επιστημονικά Υπεύθυνη | Κοινωνική Λειτουργός | MSc Αναπτυξιακής Ψυχολογίας', roleEn:'Scientific Supervisor | Social Worker | MSc Developmental Psychology' },
+        { name:'Παναγιώτης Βιώνης',        photo:'Photos/panagiotis.vionis.jpeg',  roleEl:'Υπεύθυνος R&amp;D | Διδάκτορας Πανεπιστημίου Πελοποννήσου', roleEn:'R&amp;D Coordinator | PhD University of Peloponnese' },
+        { name:'Μαρία Καραχισαρίδου',      photo:'Photos/maria.png',               roleEl:'Γυμνάστρια εξειδικευμένη στην Ειδική Αγωγή', roleEn:'Physical Education Teacher — Special Education' },
+        { name:'Γεωργία Μαλώτση',          photo:'Photos/gorgina.png',             roleEl:'Εργοθεραπεύτρια με εξειδίκευση στην Ειδική Αγωγή', roleEn:'Occupational Therapist — Special Education' },
+        { name:'Αποστόλης Πολυχρονόπουλος',photo:'Photos/lakis.png',              roleEl:'Εργατοτεχνίτης — Συντήρηση Υποδομών &amp; Εγκαταστάσεων', roleEn:'Infrastructure &amp; Facilities Maintenance Technician' },
+        { name:'Κωστέας Γιώργος',          photo:'Photos/kosteas.png',             roleEl:'Οδηγός', roleEn:'Driver' },
+        { name:'Καργάκος Βασίλης',         photo:'Photos/vasilis.png',             roleEl:'Οδηγός', roleEn:'Driver' }
+      ];
+      function shuffle(a){
+        for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+        return a;
+      }
+      function card(m,hidden){
+        var lang=localStorage.getItem('kdif_lang')||'el';
+        var role=lang==='el'?m.roleEl:m.roleEn;
+        var ar=hidden?' aria-hidden="true"':'';
+        var alt=hidden?'':m.name;
+        return '<div class="team-card"'+ar+'><img src="'+m.photo+'" alt="'+alt+'" class="team-member-img"/><div class="team-card-body"><h4>'+m.name+'</h4><p class="team-role" data-el="'+m.roleEl+'" data-en="'+m.roleEn+'">'+role+'</p></div></div>';
+      }
+      var s=shuffle(members.slice());
+      var top=s.slice(0,5), bot=s.slice(5);
+      var tEl=document.getElementById('team-track-top');
+      var bEl=document.getElementById('team-track-bottom');
+      if(tEl) tEl.innerHTML=top.map(function(m){return card(m,false);}).join('')+top.map(function(m){return card(m,true);}).join('');
+      if(bEl) bEl.innerHTML=bot.map(function(m){return card(m,false);}).join('')+bot.map(function(m){return card(m,true);}).join('');
+    })();
+    </script>
+    <div style="display:none">
         <!-- set 1 -->
         <div class="team-card">
           <img src="Photos/traudl.png" alt="Waltraud Sperlich" class="team-member-img"/>
@@ -309,6 +347,7 @@
         </div>
       </div>
     </div>
+    </div><!-- end hidden old html -->
   </div>
 </section>
 
