@@ -683,7 +683,7 @@ ul { list-style: none; }
 .hero-bg-services::before { background-image: url('../Photos/20251004_132330.jpg'); }
 .hero-bg-gallery::before  { background-image: url('../Photos/20251126_114948.jpg'); }
 .hero-bg-collab::before      { background-image: url('../Photos/20251119_100531.jpg'); }
-.hero-bg-crowdfunding::before { background-image: url('../Photos/20260315_142233.jpg'); }
+.hero-bg-crowdfunding::before { background-image: url('../Photos/paralia.jpg'); }
 
 /* ══ HEADER CROWDFUND BUTTON ══ */
 .header-crowdfund-link {
