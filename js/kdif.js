@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const updateLanguage = (lang) => {
         // data-el / data-en elements
         document.querySelectorAll('[data-el]').forEach(el => {
-            el.textContent = (lang === 'el')
+            el.innerHTML = (lang === 'el')
                 ? el.getAttribute('data-el')
                 : el.getAttribute('data-en');
         });
