@@ -94,6 +94,15 @@
           <a class="share-btn share-btn-fb" id="share-fb" href="#" target="_blank" rel="noopener">
             <i class="fa-brands fa-facebook-f"></i> Facebook
           </a>
+          <a class="share-btn share-btn-wa" id="share-wa" href="#" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          <a class="share-btn share-btn-li" id="share-li" href="#" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+          </a>
+          <a class="share-btn share-btn-tw" id="share-tw" href="#" target="_blank" rel="noopener">
+            <i class="fa-brands fa-x-twitter"></i> Twitter
+          </a>
           <button class="share-btn share-btn-copy" id="copy-link">
             <i class="fa-solid fa-link"></i>
             <span data-el="Αντιγραφή συνδέσμου" data-en="Copy link">Αντιγραφή συνδέσμου</span>
@@ -162,6 +171,12 @@
 <script>
   document.getElementById('share-fb').href =
     'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(window.location.href);
+  document.getElementById('share-wa').href =
+    'https://wa.me/?text=' + encodeURIComponent(window.location.href);
+  document.getElementById('share-li').href =
+    'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(window.location.href);
+  document.getElementById('share-tw').href =
+    'https://twitter.com/intent/tweet?url=' + encodeURIComponent(window.location.href);
   document.getElementById('copy-link').addEventListener('click', function() {
     navigator.clipboard.writeText(window.location.href).then(function() {
       var btn = document.getElementById('copy-link');
