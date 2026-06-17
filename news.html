@@ -129,6 +129,10 @@
       transition: transform 0.7s var(--ease-out);
     }
     .news-article:hover .news-article-img-wrap img { transform: scale(1.08); }
+    .news-article-img-wrap video {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
     .news-article-badge {
       position: absolute;
       top: 1.2rem; left: 1.2rem;
@@ -367,6 +371,32 @@
     </div>
 
     <div class="news-grid">
+
+      <article class="news-article reveal">
+        <div class="news-article-img-wrap">
+          <video src="Photos/giorti2026.mp4" muted loop playsinline preload="metadata"
+                 onmouseenter="this.play()" onmouseleave="this.pause()"></video>
+          <span class="news-article-badge badge-event" data-el="ΕΚΔΗΛΩΣΗ" data-en="EVENT">ΕΚΔΗΛΩΣΗ</span>
+        </div>
+        <div class="news-article-body">
+          <div class="news-article-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span data-el="Ιούνιος 2026" data-en="June 2026">Ιούνιος 2026</span>
+          </div>
+          <h3 data-el="Ετήσια Γιορτή 2026 — Μια Χρονιά Δημιουργίας &amp; Συμπερίληψης"
+              data-en="Annual Celebration 2026 — A Year of Creativity &amp; Inclusion">
+            Ετήσια Γιορτή 2026 — Μια Χρονιά Δημιουργίας &amp; Συμπερίληψης
+          </h3>
+          <p data-el="Είχαμε τη χαρά να φιλοξενήσουμε το 9ο Νηπιαγωγείο Καλαμάτας, να απολαύσουμε τη συναυλία των ωφελούμενών μας και να γιορτάσουμε μαζί μια χρονιά γεμάτη δημιουργία, μάθηση και συμπερίληψη."
+             data-en="We had the joy of welcoming the 9th Kindergarten of Kalamata, enjoying the concert of our beneficiaries and celebrating together a year full of creativity, learning and inclusion.">
+            Είχαμε τη χαρά να φιλοξενήσουμε το 9ο Νηπιαγωγείο Καλαμάτας, να απολαύσουμε τη συναυλία των ωφελούμενών μας και να γιορτάσουμε μαζί μια χρονιά γεμάτη δημιουργία, μάθηση και συμπερίληψη.
+          </p>
+          <a class="news-readmore" href="article-giorti2026.html">
+            <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
 
       <article class="news-article reveal">
         <div class="news-article-img-wrap">
