@@ -36,7 +36,7 @@ jobs:
             index.html about.html news.html programs.html support.html \
             contact.html collaborations.html gallery.html services.html \
             article-erasmus-katholic.html article-mnimonio.html \
-            article-nipiagogeio.html article-sympan.html crowdfunding.html \
+            article-nipiagogeio.html article-sympan.html article-giorti2026.html crowdfunding.html \
             --dist-dir dist --public-url /kipos-tis-lysous/
 
       - uses: actions/upload-pages-artifact@v3
