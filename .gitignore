@@ -5,6 +5,7 @@ dist/
 
 # Large unused files
 Photos/*.mp4
+!Photos/giorti2026.mp4
 *.pptx
 *.docx
 Έρευνα/
