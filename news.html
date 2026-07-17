@@ -363,16 +363,18 @@
   <div class="container">
 
     <div class="filter-bar reveal">
-      <button class="filter-btn active" data-el="ΟΛΑ" data-en="ALL">ΟΛΑ</button>
-      <button class="filter-btn">Erasmus+</button>
-      <button class="filter-btn" data-el="ΕΚΔΗΛΩΣΕΙΣ" data-en="EVENTS">ΕΚΔΗΛΩΣΕΙΣ</button>
-      <button class="filter-btn" data-el="ΕΚΠΑΙΔΕΥΣΗ" data-en="TRAINING">ΕΚΠΑΙΔΕΥΣΗ</button>
-      <button class="filter-btn" data-el="ΚΟΙΝΟΤΗΤΑ" data-en="COMMUNITY">ΚΟΙΝΟΤΗΤΑ</button>
+      <button class="filter-btn active" data-filter="all" data-el="ΟΛΑ" data-en="ALL">ΟΛΑ</button>
+      <button class="filter-btn" data-filter="erasmus">Erasmus+</button>
+      <button class="filter-btn" data-filter="events" data-el="ΕΚΔΗΛΩΣΕΙΣ" data-en="EVENTS">ΕΚΔΗΛΩΣΕΙΣ</button>
+      <button class="filter-btn" data-filter="training" data-el="ΕΚΠΑΙΔΕΥΣΗ" data-en="TRAINING">ΕΚΠΑΙΔΕΥΣΗ</button>
+      <button class="filter-btn" data-filter="community" data-el="ΚΟΙΝΟΤΗΤΑ" data-en="COMMUNITY">ΚΟΙΝΟΤΗΤΑ</button>
+      <button class="filter-btn" data-filter="collaboration" data-el="ΣΥΝΕΡΓΑΣΙΑ" data-en="PARTNERSHIP">ΣΥΝΕΡΓΑΣΙΑ</button>
+      <button class="filter-btn" data-filter="jobs" data-el="ΘΕΣΕΙΣ ΕΡΓΑΣΙΑΣ" data-en="JOB OPENINGS">ΘΕΣΕΙΣ ΕΡΓΑΣΙΑΣ</button>
     </div>
 
     <div class="news-grid">
 
-      <article class="news-article reveal">
+      <article class="news-article reveal" data-category="jobs">
         <div class="news-article-img-wrap">
           <img src="Photos/aggelia.png" alt="Θέσεις Εργασίας — Κήπος της Λυσούς"/>
           <span class="news-article-badge badge-event" data-el="ΘΕΣΕΙΣ ΕΡΓΑΣΙΑΣ" data-en="JOB OPENINGS">ΘΕΣΕΙΣ ΕΡΓΑΣΙΑΣ</span>
@@ -397,7 +399,7 @@
         </div>
       </article>
 
-      <article class="news-article reveal">
+      <article class="news-article reveal" data-category="events">
         <div class="news-article-img-wrap">
           <video src="Photos/giorti2026.mp4" muted loop playsinline preload="metadata"
                  onmouseenter="this.play()" onmouseleave="this.pause()"></video>
@@ -423,7 +425,7 @@
         </div>
       </article>
 
-      <article class="news-article reveal">
+      <article class="news-article reveal" data-category="collaboration">
         <div class="news-article-img-wrap">
           <img src="Photos/university.png" alt="Μνημόνιο Συνεργασίας Πανεπιστήμιο Πελοποννήσου"/>
           <span class="news-article-badge badge-collaboration" data-el="ΣΥΝΕΡΓΑΣΙΑ" data-en="PARTNERSHIP">ΣΥΝΕΡΓΑΣΙΑ</span>
@@ -442,7 +444,7 @@
         </div>
       </article>
 
-      <article class="news-article reveal reveal-delay-1">
+      <article class="news-article reveal reveal-delay-1" data-category="events">
         <div class="news-article-img-wrap">
           <img src="Photos/Messenger_creation_949963D7-800F-42B0-8CAB-FCC4DEB2E044.jpeg" alt="Το Συμπαν Μεσα Μας"/>
           <span class="news-article-badge badge-event" data-el="ΕΚΔΗΛΩΣΗ" data-en="EVENT">ΕΚΔΗΛΩΣΗ</span>
@@ -461,7 +463,7 @@
         </div>
       </article>
 
-      <article class="news-article reveal reveal-delay-1">
+      <article class="news-article reveal reveal-delay-1" data-category="community">
         <div class="news-article-img-wrap">
           <img src="Photos/Messenger_creation_5B67C70E-E870-4351-8FBF-D0421C1799CD.jpeg" alt="Βιωματικό Εργαστήριο Νηπιαγωγείο"/>
           <span class="news-article-badge badge-community" data-el="ΣΥΜΠΕΡΙΛΗΨΗ" data-en="INCLUSION">ΣΥΜΠΕΡΙΛΗΨΗ</span>
@@ -480,7 +482,7 @@
         </div>
       </article>
 
-      <article class="news-article reveal reveal-delay-2">
+      <article class="news-article reveal reveal-delay-2" data-category="erasmus">
         <div class="news-article-img-wrap">
           <img src="Photos/20251004_132047.jpg" alt="Erasmus Katholic München"/>
           <span class="news-article-badge badge-erasmus">Erasmus+</span>
@@ -607,5 +609,28 @@
 </div>
 <a class="floating-btn" href="contact.html" aria-label="Contact"><i class="fa-solid fa-envelope"></i></a>
 <script src="js/kdif.js"></script>
+<script>
+  (function() {
+    var btns = document.querySelectorAll('.filter-btn[data-filter]');
+    var articles = document.querySelectorAll('.news-grid .news-article');
+
+    btns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var filter = btn.getAttribute('data-filter');
+
+        btns.forEach(function(b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+
+        articles.forEach(function(art) {
+          if (filter === 'all' || art.getAttribute('data-category') === filter) {
+            art.style.display = '';
+          } else {
+            art.style.display = 'none';
+          }
+        });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
