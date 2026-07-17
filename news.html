@@ -366,13 +366,38 @@
       <button class="filter-btn active" data-filter="all" data-el="ΟΛΑ" data-en="ALL">ΟΛΑ</button>
       <button class="filter-btn" data-filter="erasmus">Erasmus+</button>
       <button class="filter-btn" data-filter="events" data-el="ΕΚΔΗΛΩΣΕΙΣ" data-en="EVENTS">ΕΚΔΗΛΩΣΕΙΣ</button>
-      <button class="filter-btn" data-filter="training" data-el="ΕΚΠΑΙΔΕΥΣΗ" data-en="TRAINING">ΕΚΠΑΙΔΕΥΣΗ</button>
       <button class="filter-btn" data-filter="community" data-el="ΚΟΙΝΟΤΗΤΑ" data-en="COMMUNITY">ΚΟΙΝΟΤΗΤΑ</button>
       <button class="filter-btn" data-filter="collaboration" data-el="ΣΥΝΕΡΓΑΣΙΑ" data-en="PARTNERSHIP">ΣΥΝΕΡΓΑΣΙΑ</button>
       <button class="filter-btn" data-filter="jobs" data-el="ΘΕΣΕΙΣ ΕΡΓΑΣΙΑΣ" data-en="JOB OPENINGS">ΘΕΣΕΙΣ ΕΡΓΑΣΙΑΣ</button>
+      <button class="filter-btn" data-filter="development" data-el="ΑΝΑΠΤΥΞΗ" data-en="DEVELOPMENT">ΑΝΑΠΤΥΞΗ</button>
     </div>
 
     <div class="news-grid">
+
+      <article class="news-article reveal" data-category="development">
+        <div class="news-article-img-wrap">
+          <img src="Photos/adeia.jpg" alt="Άδεια Λειτουργίας ΚΔΗΦ — Κήπος της Λυσούς"/>
+          <span class="news-article-badge badge-event" data-el="ΑΝΑΠΤΥΞΗ" data-en="DEVELOPMENT">ΑΝΑΠΤΥΞΗ</span>
+        </div>
+        <div class="news-article-body">
+          <div class="news-article-date">
+            <i class="fa-regular fa-calendar"></i>
+            <span data-el="2026" data-en="2026">2026</span>
+          </div>
+          <h3 data-el="Μια νέα εποχή ξεκινά — Λάβαμε άδεια λειτουργίας ΚΔΗΦ"
+              data-en="A new era begins — Official Day Care Centre licence granted">
+            Μια νέα εποχή ξεκινά — Λάβαμε άδεια λειτουργίας ΚΔΗΦ
+          </h3>
+          <p data-el="Με χαρά και συγκίνηση ανακοινώνουμε ότι ο Κήπος της Λυσούς έλαβε επίσημα την άδεια λειτουργίας του ως ΚΔΗΦ. Ένα όραμα πολλών χρόνων γίνεται πραγματικότητα."
+             data-en="With great joy we announce that LYSOs Garden has officially received its operating licence as a Day Care Centre. A vision of many years becomes reality.">
+            Με χαρά και συγκίνηση ανακοινώνουμε ότι ο Κήπος της Λυσούς έλαβε επίσημα την άδεια λειτουργίας του ως ΚΔΗΦ. Ένα όραμα πολλών χρόνων γίνεται πραγματικότητα.
+          </p>
+          <a class="news-readmore" href="article-adeia.html">
+            <span data-el="ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ" data-en="READ MORE">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </article>
 
       <article class="news-article reveal" data-category="jobs">
         <div class="news-article-img-wrap">
@@ -622,7 +647,8 @@
         btn.classList.add('active');
 
         articles.forEach(function(art) {
-          if (filter === 'all' || art.getAttribute('data-category') === filter) {
+          var cats = (art.getAttribute('data-category') || '').split(' ');
+          if (filter === 'all' || cats.indexOf(filter) !== -1) {
             art.style.display = '';
           } else {
             art.style.display = 'none';

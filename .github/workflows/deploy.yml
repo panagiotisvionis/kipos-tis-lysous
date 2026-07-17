@@ -37,7 +37,7 @@ jobs:
             contact.html collaborations.html gallery.html services.html \
             article-erasmus-katholic.html article-mnimonio.html \
             article-nipiagogeio.html article-sympan.html article-giorti2026.html crowdfunding.html \
-            article-aggelia.html \
+            article-aggelia.html article-adeia.html \
             --dist-dir dist --public-url /
 
       - name: Create CNAME
