@@ -2799,3 +2799,7 @@ ul { list-style: none; }
   font-style: italic;
   font-family: var(--f-body);
 }
+
+/* Language-specific images (e.g. bilingual posters) */
+html[lang="en"] .lang-el-only { display: none !important; }
+html:not([lang="en"]) .lang-en-only { display: none !important; }
