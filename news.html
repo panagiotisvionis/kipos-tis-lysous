@@ -130,7 +130,9 @@
       transition: transform 0.7s var(--ease-out);
     }
     .news-article:hover .news-article-img-wrap img { transform: scale(1.08); }
-    .news-article-img-wrap video {
+    .news-article-img-wrap video,
+    .news-article-img-wrap iframe {
+      display: block; border: 0;
       width: 100%; height: 100%;
       object-fit: cover;
     }
@@ -373,9 +375,12 @@
 
       <article class="news-article reveal" data-category="events community development">
         <div class="news-article-img-wrap">
-          <img src="Photos/egkainia.jpg" class="lang-el-only" alt="Εγκαίνια του Κήπου της Λυσούς"/>
-          <img src="Photos/opening.jpg" class="lang-en-only" alt="Opening of LYSOs Garden"/>
-          <span class="news-article-badge badge-event" data-el="ΕΚΔΗΛΩΣΗ" data-en="EVENT">ΕΚΔΗΛΩΣΗ</span>
+          <iframe src="https://www.youtube.com/embed/tZ3QEgtNQps"
+                  title="Εγκαίνια του Κήπου της Λυσούς"
+                  frameborder="0" loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+          <span class="news-article-badge badge-event" style="pointer-events:none;" data-el="ΕΚΔΗΛΩΣΗ" data-en="EVENT">ΕΚΔΗΛΩΣΗ</span>
         </div>
         <div class="news-article-body">
           <div class="news-article-date">
